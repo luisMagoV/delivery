@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-icon size="large" (click)="appConfig.back()" name="arrow-back-outline"></ion-icon>
+        </ion-buttons>
+        <ion-title>{{ 'contact.title' | translate }}</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-list lines="none" class="w-100">
+        <ion-item class="ion-padding-top w-100">
+            <ion-textarea [(ngModel)]="message" placeholder="{{ 'contact.messagePlaceholder' | translate }}" rows="6" type="text">
+            </ion-textarea>
+        </ion-item>
+        <ion-item class="no-lines ion-padding w-100">
+            <ion-button expand="block" class="w-100" (click)="send()"
+                        *ngIf="message && message.toString().length > 0">
+                <ion-label class="text-uppercase"><ion-icon name="send"></ion-icon>{{ 'contact.send' | translate }}</ion-label>
+            </ion-button>
+        </ion-item>
+    </ion-list>
+</ion-content>

@@ -1,0 +1,74 @@
+.content-md {
+  background: -webkit-linear-gradient(-180deg, #086ea6, #10d58e); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(-180deg, #086ea6, #10d58e); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(-180deg, #086ea6, #10d58e); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(-180deg, #086ea6, #10d58e); /* Standard syntax (must be last) */
+}
+
+.item-md .item-button {
+  font-size: 20px;
+}
+
+.item-md.item-label-floating [item-right] {
+  margin: 0;
+  margin-top: 20px;
+}
+
+.title_center {
+  margin-top: 10px;
+  text-align: center;
+
+  h1 {
+    font-family: MarkPro;
+    font-weight: 600;
+    color: white;
+  }
+
+  h2 {
+    font-family: MarkPro;
+  }
+
+  span {
+    font-family: MarkPro;
+    font-weight: 200;
+    color: white;
+  }
+}
+
+.item-md {
+  background: transparent;
+  color: white;
+}
+
+.item-input .label-md {
+  color: white;
+  font-family: MarkPro-Bold;
+  font-size: 20px;
+}
+
+.item-input-has-focus .label-md[floating], .item-has-focus .label-md[floating] {
+  color: white;
+}
+
+.list-md .item-input.item-input-has-focus:last-child, .list-md .item-input.input-has-focus:last-child,
+.item-md.item-input.item-input-has-focus .item-inner, .item-md.item-input.input-has-focus .item-inner {
+  border-bottom-color: white;
+  box-shadow: none;
+}
+
+.item-label-floating .text-input-md {
+  font-family: MarkPro;
+}
+
+.item-input-has-focus input, .input-has-focus input {
+  color: white;
+}
+
+// :focus::-webkit-input-placeholder {color: white}
+// :focus::-moz-placeholder          {color: white}
+// :focus:-moz-placeholder           {color: white}
+// :focus:-ms-input-placeholder      {color: white}
+
+.input-cover {
+  display: none;
+}

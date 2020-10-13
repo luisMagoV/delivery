@@ -1,0 +1,88 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <!--<ion-buttons class="ion-padding-end" slot="end" (click)="appConfig.back()">-->
+        <ion-buttons class="ion-padding-end" slot="end" (click)="dismiss()">
+            <ion-icon size="large" name="close-circle-outline"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+    <page-select-address *ngIf="!appConfig.hasFavorite"></page-select-address>
+
+    <div *ngIf="appConfig.hasFavorite">
+        <ion-title class="main-title">
+            {{ 'checkout.title' | translate }}
+        </ion-title>
+
+        <ion-slides [options]="slidesOptionsBannners">
+            <ion-slide *ngFor="let ban of bannersCheckout">
+                <img alt="" [src]="ban.imageUrl">
+            </ion-slide>
+        </ion-slides>
+
+        <div *ngFor="let store of items">
+            <ion-item class="item-store-back" (click)="dismiss()" lines="none">
+                <ion-row>
+                    <ion-col size="3">
+                        <ion-avatar>
+                            <img alt="" [src]="store.logo">
+                        </ion-avatar>
+                    </ion-col>
+                    <ion-col size="9">
+                        <ion-title class="ion-padding-start">{{store.name}}</ion-title>
+                        <ion-text class="ion-padding-start">{{ 'checkout.backStore' | translate }}</ion-text>
+                    </ion-col>
+                </ion-row>
+            </ion-item>
+
+            <ion-item-divider></ion-item-divider>
+
+            <ion-item *ngIf="items?.length < 1">
+                <h5 class="title"><b>{{ 'checkout.noProducts' | translate }}</b></h5>
+            </ion-item>
+
+            <ion-card *ngFor="let product of store.products; let myIdx = index; let first = first; let last = last"
+                      [class.last-item]="last" class="ion-no-margin">
+                <ion-item lines="none">
+                    <ion-row class="w-100">
+                        <ion-col size="4" class="ion-text-center" (click)="showDetail(product)">
+                            <ion-avatar class="w-100 h-100 ion-text-center square">
+                                <img alt="{{product?.name}}" *ngIf="product?.images"
+                                     [src]="product?.images[0]?.url || '../../assets/img/no-product-image.png'">
+                            </ion-avatar>
+                        </ion-col>
+                        <ion-col size="8" class="h-100">
+                            <p class="ion-text-wrap product" (click)="showDetail(product)">{{product?.name}}</p>
+                            <ion-label class="product">${{product.price}}</ion-label>
+                            <ion-item class="ion-no-padding h-100 align-bottom align-text-bottom" lines="none">
+                                <ion-label></ion-label>
+                                <ion-icon size="large" (click)="moreless(product, false)"
+                                          class="text-center align-middle product"
+                                          name="remove-circle-outline"></ion-icon>
+                                <ion-label
+                                        class="text-center align-middle product">{{product?.quantity || '0'}}</ion-label>
+                                <ion-icon size="large" (click)="moreless(product, true)"
+                                          class="text-center align-middle product"
+                                          name="add-circle-outline"></ion-icon>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+                </ion-item>
+            </ion-card>
+        </div>
+    </div>
+</ion-content>
+
+<ion-footer>
+    <ion-button class="pagar" (click)="selectProducts()" *ngIf="appConfig.totalPrice > 0" size="large" mode="ios">
+        <ion-text class="items" slot="start">{{ items[0].products.length }}</ion-text>
+        {{ 'checkout.continue' | translate }}
+        <ion-text class="price" slot="end">{{ appConfig.totalPrice | money }}</ion-text>
+    </ion-button>
+    <ion-button class="vaciar" (click)="emptyCartStore()" *ngIf="appConfig.totalPrice > 0" size="large" mode="ios">
+        {{ 'checkout.empty' | translate }}
+    </ion-button>
+</ion-footer>

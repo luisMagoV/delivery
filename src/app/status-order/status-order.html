@@ -1,0 +1,189 @@
+<ion-header>
+    <ion-toolbar color="primary">
+
+        <!--
+        <ion-buttons *ngIf="!noCancel" slot="start">
+            <button (click)="cancelOrder()" *ngIf="!noCancelLoad" class="btn_back_h">
+                <ion-icon name="close-outline"></ion-icon>
+            </button>
+        </ion-buttons>
+        -->
+
+        <ion-buttons slot="end">
+            <button (click)="closeScreen()">
+                <!--<ion-icon class="icon_min" name="newspaper-outline"></ion-icon>-->
+                <ion-icon class="icon_min" name="close-outline"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>{{ 'status-order.status' | translate }}</ion-title>
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <ion-list *ngIf="!cancelActive">
+        <ion-item *ngIf="orderOrigin?.domiciliary?.name">
+            <ion-col class="ion-no-padding">
+                <ion-label class="ion-text-wrap font-weight-bold">
+                    {{orderOrigin?.domiciliary?.name}} {{orderOrigin?.domiciliary?.lastName}}
+                </ion-label>
+                <ion-item class="ion-no-padding">
+                    <ion-label>
+                        <ion-icon color="primary" name="call-outline"></ion-icon>
+                        {{orderOrigin?.domiciliary?.phone}}
+                    </ion-label>
+                    <ion-label (click)="chat()">
+                        <ion-icon color="primary" class="icon_chat_size" name="chatbox-outline"></ion-icon>
+                        Chat
+                    </ion-label>
+                </ion-item>
+            </ion-col>
+        </ion-item>
+        <!--
+        <ion-item *ngIf="!orderOrigin?.domiciliary?.name">
+            <ion-avatar slot="start">
+                <img alt="" src="assets/img/loading.gif">
+            </ion-avatar>
+            <ion-col>
+                <ion-label class="text-wrap ion-text-center w-100">
+                    Su orden está en proceso.
+                </ion-label>
+            </ion-col>
+        </ion-item>
+        -->
+    </ion-list>
+
+    <!--
+    <div class="h-100" *ngIf="!cancelActive && !orderOrigin?.domiciliary?.name">
+        <ion-img alt="" src="assets/img/PedidoEnviado.png" class="margin-auto w-50 middle-content"></ion-img>
+    </div>
+    -->
+
+    <ion-list>
+        <div *ngFor="let status of this.orderOrigin.statuses">
+            <ion-item *ngIf="messageStatus[status.status] != 'Orden procesada' && messageStatus[status.status]" class="item_k ion-tappable">
+                <ion-avatar slot="start">
+                    <img alt="" src="assets/img/{{status.status}}.png">
+                </ion-avatar>
+                <ion-col class="ion-no-padding">
+                    <ion-label class="text-wrap">{{ messageStatus[status.status] }}</ion-label>
+                    <ion-label class="text-wrap">
+                        <span *ngIf="status.status == 'bought'">{{ this.orderOrigin.order.amount_paid | currency}}</span>
+                    </ion-label>
+                    <ion-note class="note note-ios align-self-end">{{ this.orderOrigin.created_at | date:"h:mma" }}</ion-note>
+                </ion-col>
+            </ion-item>
+        </div>
+    </ion-list>
+
+    <ion-list *ngIf="ratingnow">
+        <ion-item class="no-lines text-center">
+            <ion-label class="font-weight-bold">{{ 'status-order.service' | translate }}</ion-label>
+        </ion-item>
+        <ion-item lines="none" class="ion-text-center">
+            <ion-icon name="star-outline" class="w-100" (click)="rate(1)"></ion-icon>
+            <ion-icon name="star-outline" class="w-100" (click)="rate(2)"></ion-icon>
+            <ion-icon name="star-outline" class="w-100" (click)="rate(3)"></ion-icon>
+            <ion-icon name="star-outline" class="w-100" (click)="rate(4)"></ion-icon>
+            <ion-icon name="star-outline" class="w-100" (click)="rate(5)"></ion-icon>
+        </ion-item>
+        <!--
+        <ion-item *ngIf="ratevalue > 0" class="no-lines text-center">
+            {{rateMsg[ratevalue - 1]}}
+        </ion-item>
+        <ion-item *ngIf="ratevalue > 0" lines="none">
+            <ion-textarea [(ngModel)]="message" placeholder="Escribe tu experiencia con el servicio" type="text"></ion-textarea>
+        </ion-item>
+        <ion-item lines="none">
+            <ion-button expand="block" (click)="rating()" class="align-self-center w-100">
+                <ion-label>
+                    <ion-icon name="send"></ion-icon>
+                    Salir
+                </ion-label>
+            </ion-button>
+        </ion-item>
+        -->
+    </ion-list>
+
+
+    <!--LIST PRODUCTS STORE-->
+    <!--<div *ngIf="service.code == 'type_store'">-->
+    <div>
+        <ion-list *ngFor="let storeItem of orderOrigin.stores">
+            <ion-item lines="none">
+                <ion-col class="text-center">
+                    <!--<img class="w-50" *ngIf="items.length < 2" [alt]="storeItem.name" [src]="storeItem.logo || '../../assets/img/no-product-image.png'">-->
+                    <img class="w-50" [alt]="storeItem.name" [src]="storeItem.logo || '../../assets/img/no-product-image.png'">
+                    <ion-label class="ion-text-wrap"><b>{{storeItem.name}}</b></ion-label>
+                </ion-col>
+            </ion-item>
+            <div *ngFor="let productItem of orderOrigin.products">
+                <ion-item class="item_k" *ngIf="productItem?.quantity > 0">
+                    <ion-avatar slot="start">
+                        <img alt="{{productItem.name}}" [src]="productItem.image || '../../assets/img/no-product-image.png'">
+                    </ion-avatar>
+                    <ion-label>{{productItem.quantity}} x {{ productItem.name }}</ion-label>
+                    <ion-label class="price_item">{{productItem.product.price | currency}}</ion-label>
+                </ion-item>
+            </div>
+        </ion-list>
+    </div>
+
+    <!--RESUMEN-->
+    <ion-list>
+        <ion-list-header>
+            <p class="service_title">
+                <b>{{ 'status-order.order' | translate }}</b>
+            </p>
+        </ion-list-header>
+
+        <!--
+        <ion-col class="ion-no-padding" *ngIf="originPlace?.place && originPlace?.place?.description !== destination?.place?.description">
+            <ion-item class="item_k">
+                <ion-label class="ion-text-wrap"><b>Buscar en:</b> {{originPlace?.place?.description || originPlace?.place?.name}}</ion-label>
+            </ion-item>
+        </ion-col>
+        <ion-col class="ion-no-padding" *ngIf="destination?.place">
+            <ion-item class="item_k">
+                <ion-label class="ion-text-wrap"><b>Entrega en:</b> {{destination?.place?.description || destination?.place?.name}}</ion-label>
+            </ion-item>
+        </ion-col>
+        -->
+
+        <!--<ion-item *ngIf="service.code" class="item_k">-->
+        <ion-item *ngIf="orderOrigin.amount_paid && orderOrigin.amount_itbms" class="item_k">
+            <ion-label>{{ 'status-order.products' | translate }}</ion-label>
+            <ion-label class="price_item ion-text-end">{{orderOrigin.amount_paid - orderOrigin.amount_itbms | currency}}</ion-label>
+        </ion-item>
+        <!--<ion-item *ngIf="service.code" class="item_k">-->
+        <ion-item *ngIf="orderOrigin.service.cost" class="item_k">
+            <ion-label>{{ 'status-order.delivery' | translate }}</ion-label>
+            <ion-label class="price_item ion-text-end">{{orderOrigin.service.cost | currency}}</ion-label>
+        </ion-item>
+        <!--<ion-item *ngIf="service.code" class="item_k">-->
+        <ion-item *ngIf="orderOrigin.amount_itbms" class="item_k">
+            <ion-label>ITBMS</ion-label>
+            <ion-label class="price_item ion-text-end">{{orderOrigin.amount_itbms | currency}}</ion-label>
+        </ion-item>
+        <!--<ion-item *ngIf="service.code" class="item_k">-->
+        <ion-item *ngIf="orderOrigin.amount_paid" class="item_k">
+            <ion-label>TOTAL</ion-label>
+            <ion-label class="price_item ion-text-end">{{orderOrigin.amount_paid | currency}}</ion-label>
+        </ion-item>
+    </ion-list>
+
+
+
+
+
+</ion-content>
+
+
+<ion-footer>
+    <ion-toolbar>
+        <ion-img alt="" src="assets/img/logo_gray.png" class="margin-auto w-10 ion-padding-bottom"></ion-img>
+        <ion-button shape="round" expand="block" class="w-75 margin-auto" (click)="cancelOrder()" *ngIf="!noCancel">
+            <label class="icon_text">{{ 'status-order.cancel' | translate }}</label>
+        </ion-button>
+    </ion-toolbar>
+</ion-footer>

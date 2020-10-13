@@ -1,0 +1,40 @@
+{
+  "prizes": {
+    "back": "Atras",
+    "title": "Premios",
+    "points": "Puntos Disponibles: ",
+    "details": "Ver detalles de mis puntos e historial de canje",
+    "exchange": "Acumula puntos por cada delivery hecho con togo<br />y cagealos por estos premios",
+    "terms": "Ver términos y condiciones",
+    "exchangePoints": "Canjear"
+  },
+  "legal": {
+    "agree": "Aceptar"
+  },
+  "history": {
+    "back": "Atras",
+    "title": "Detalles de Puntos",
+    "points": {
+      "accumulated": "TOTAL DE PUNTOS ACUMULADOS",
+      "exchanged": "TOTAL DE PUNTOS CANJEADOS",
+      "available": "TOTAL DE PUNTOS DISPONIBLES"
+    },
+    "cards": {
+      "date": "Fecha de canje",
+      "exchanged": "Puntos Canjeados",
+      "prize": "Premio",
+      "code": "Código" 
+    },
+    "history": "Historial de Canjes",
+    "no-history": "Usted no tiene premios canjeados",
+    "card": {
+      "date": "FECHA DE CANJE",
+      "exchanged": "PUNTOS CANJEADOS",
+      "prize": "PREMIO",
+      "code": "CÓDIGO"
+    }
+  },
+  "congrats": {
+    "details": "Detalles"
+  }
+}

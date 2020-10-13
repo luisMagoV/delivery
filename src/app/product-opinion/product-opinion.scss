@@ -1,0 +1,64 @@
+ion-header {
+  ion-toolbar {
+    height: 25px;
+  }
+
+  ion-item {
+    color:rgb(184, 190, 199);
+    ion-img {
+      max-width: 80px;
+    }
+  }
+
+  .comment {
+    padding: 5px;
+    border-radius: 55px 56px 56px 55px;
+    
+  }
+
+}
+
+ion-content {
+  
+  ion-item {
+    background-color:rgb(184, 190, 199);
+  }
+
+  .store-logo {
+    width: 64px;
+    height: 64px;
+    background-color:rgb(184, 190, 199);
+  }
+
+  .comment, .comments {
+    border-radius: 55px 56px 56px 55px;
+    color: gray;
+  }
+
+  .comment {
+    padding: 5px;
+    border-radius: 55px 56px 56px 55px;
+  }
+
+  .comments {
+    margin: 10px 0;
+    border-radius: 5px;
+    border-radius: 55px 56px 56px 55px;
+    ion-label {
+      font-size: small;
+    }
+  }
+}
+
+.comment .comments {
+  border-radius: 55px 56px 56px 55px;
+}
+
+
+
+
+
+
+
+
+

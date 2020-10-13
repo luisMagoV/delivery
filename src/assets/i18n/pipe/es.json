@@ -1,0 +1,8 @@
+{
+  "select-address": {
+    "title": "Seleccione su dirección <br> de entrega",
+    "delete": "Eliminar",
+    "select": "Seleccionar",
+    "add": "Agregar nueva dirección"
+  }
+}

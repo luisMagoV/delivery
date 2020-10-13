@@ -1,0 +1,164 @@
+ion-header {
+  ion-toolbar {
+    --background: #2b2254;
+  }
+}
+
+ion-content, ion-card {
+  --background: #f8f8f8;
+}
+
+ion-item {
+  --background: #f8f8f8;
+
+  ion-title {
+    color: black;
+  }
+}
+
+.title {
+  font-size: larger;
+  font-weight: bolder;
+}
+
+ion-card {
+  border-radius: 1rem !important;
+  border-bottom: none !important;
+  box-shadow: none;
+
+  img {
+    border-radius: 1rem;
+  }
+}
+
+.slide-banners {
+  /*
+  width: 95vw;
+  height: 100px;
+
+   */
+
+  img {
+    /*
+    max-height: 100px;
+    width: 100%;
+
+     */
+    width: 95vw !important;
+    height: 100px !important;
+  }
+
+  ion-label {
+    font-size: smaller;
+  }
+}
+
+.cupons {
+  text-align: center;
+  width: 340px;
+  height: 135px;
+  background-image: url('../../assets/img/tienes_un_cupon.png');
+  background-size: 340px 132px;
+  background-repeat: no-repeat;
+
+  ion-title {
+    font-size: large;
+    font-weight: bold;
+  }
+
+  ion-label {
+    font-size: small;
+  }
+
+  ion-button {
+    font-size: small;
+    text-transform: none;
+    --border-radius: 0.5rem !important;
+  }
+}
+
+.slides-favStore {
+  width: 175px !important;
+
+  //height: 150px;
+  ion-card {
+    width: 150px;
+    height: 160px;
+  }
+
+  ion-title {
+    color: black;
+  }
+
+  .store {
+    font-size: small;
+    font-weight: bold;
+    width: 150px;
+    text-align: left;
+  }
+
+  .category {
+    font-size: smaller;
+    //font-weight: bold;
+  }
+}
+
+.stores_slide {
+  .slideStore {
+    height: 160px !important;
+    min-width: 170px !important;
+
+    .grid-card {
+      height: 100px;
+      //text-align: left;
+      //border: 1px solid #1673A5;
+      //box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+      img {
+        height: 100px;
+      }
+    }
+
+    .name {
+      font-weight: bold;
+    }
+  }
+}
+
+.grid-label-stores {
+  font-size: smaller;
+  color: black;
+}
+
+ion-list {
+  background-color: #f8f8f8;
+
+  ion-avatar {
+    height: 60px !important;
+    width: 60px !important;
+  }
+
+  ion-item {
+    --background: white;
+  }
+
+  ion-item:first-child {
+    --border-radius: 0.5rem 0.5rem 0 0;
+  }
+
+  ion-item:last-child {
+    --border-radius: 0 0 0.5rem 0.5rem;
+  }
+
+  ion-icon {
+    color: black;
+  }
+
+  .category {
+    font-weight: bold;
+  }
+
+  .description {
+    font-size: small;
+    width: 50vw;
+  }
+}

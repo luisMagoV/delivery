@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Saldo Pendiente</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-item color="no-lines">
+    <h1 class="text-nowrap">{{info.name}} {{info.lastName}}</h1>
+    <ion-avatar slot="end">
+      <img alt="" src="{{info.avatar ? info.avatar : 'assets/img/user.png'}}">
+    </ion-avatar>
+  </ion-item>
+  <ion-item *ngIf="info.debts_to_pay" class="ion-padding">
+    <h2 class="amount_title">Cargo Pendiente</h2>
+    <p class="amount">$ {{info.debts_to_pay}}</p>
+    <button (click)="pay()" class="btn-pay btn-secondary btn rounded-pill">
+      <label>Pagar Ahora</label>
+    </button>
+  </ion-item>
+</ion-content>

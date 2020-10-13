@@ -1,0 +1,108 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons class="blue" (click)="back()">
+            <ion-icon size="small" name="arrow-back-outline"></ion-icon>
+            <ion-title size="small" class="ion-no-padding">
+                {{ 'edit.back' | translate }}
+            </ion-title>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-item class="header-background">
+        <ion-col size="8">
+            <ion-text class="ion-float-left">
+                <h2>{{ 'edit.title.title' | translate }}</h2>
+                <h6>{{ 'edit.title.subtitle' | translate }}</h6>
+            </ion-text>
+        </ion-col>
+        <ion-col size="4" class="text-center ion-no-padding" (click)="openFileChooser()">
+            <ion-avatar style="margin: auto">
+                <img #avatar alt="" [src]="info?.avatar || 'assets/img/user.png'"/>
+            </ion-avatar>
+            <ion-label color="medium">{{ 'edit.title.photo' | translate }}</ion-label>
+        </ion-col>
+    </ion-item>
+
+    <ion-card class="form-rounded">
+
+        <ion-item class="item-padding" lines="none">
+            <ion-label position="stacked">{{ 'edit.form.name' | translate }}</ion-label>
+            <ion-input [(ngModel)]="info.name" placeholder="Nombre" type="text"
+                       class="form-control form-rounded"></ion-input>
+        </ion-item>
+
+        <ion-item class="item-padding" lines="none">
+            <ion-label position="stacked">{{ 'edit.form.lastName' | translate }}</ion-label>
+            <ion-input [(ngModel)]="info.lastName" placeholder="Apellido" type="text"
+                       class="form-control form-rounded"></ion-input>
+        </ion-item>
+
+        <ion-item class="item-padding" lines="none">
+            <ion-label position="stacked">E-mail</ion-label>
+            <ion-input [(ngModel)]="info.email" placeholder="example@gmail.com" type="email"
+                       class="form-control form-rounded"></ion-input>
+        </ion-item>
+
+        <ion-item class="item-padding" lines="none">
+            <ion-label position="stacked">{{ 'edit.form.cellphone' | translate }}</ion-label>
+            <ion-input [(ngModel)]="info.phone" type="number" class="form-control form-rounded"></ion-input>
+        </ion-item>
+
+        <ion-item class="item-padding" lines="none">
+            <ion-label position="stacked">{{ 'edit.form.dateOfBirth' | translate }}</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" min="1900-01-01" max="2015-01-01" [(ngModel)]="info.birthdate"
+                          class="form-control form-rounded"></ion-datetime>
+        </ion-item>
+
+        <ion-item class="item-padding" lines="none">
+            <ion-label position="stacked">{{ 'edit.form.sex.title' | translate }}</ion-label>
+            <ion-segment [(ngModel)]="info.gender" lines="none" class="ion-no-padding ion-no-margin">
+                <ion-segment-button value="woman" mode="ios">
+                    <ion-label style="color: black;">{{ 'edit.form.sex.woman' | translate }}</ion-label>
+                </ion-segment-button>
+                <ion-segment-button value="man" mode="ios">
+                    <ion-label style="color: black;">{{ 'edit.form.sex.men' | translate }}</ion-label>
+                </ion-segment-button>
+            </ion-segment>
+        </ion-item>
+
+        <ion-item class="item-padding" lines="none">
+            <ion-label position="stacked">{{ 'edit.form.card.title' | translate }}</ion-label>
+            <ion-list class="w-100 item-margin ion-no-padding">
+                <ion-item *ngFor="let card of info.cards; let i = index"
+                          class="no-wrap item-card form-control form-rounded ion-no-padding" lines="none">
+                    <ion-avatar slot="start" class="ion-no-padding ion-no-margin">
+                        <img alt="" src="../../assets/img/{{card.type?.name | lowercase}}.png"/>
+                    </ion-avatar>
+                    <ion-label>****-****-****-{{card.lastFour}}</ion-label>
+                    <ion-icon (click)="removeCard(i, card.card_token)" slot="end"
+                              name="remove-circle-outline"></ion-icon>
+                </ion-item>
+                <ion-item (click)="goCards()" class="link add-card ion-no-padding" lines="none">
+                    <ion-label>{{ 'edit.form.card.add' | translate }}</ion-label>
+                    <ion-icon slot="end" name="add-circle-outline"></ion-icon>
+                </ion-item>
+            </ion-list>
+        </ion-item>
+
+        <ion-row class="ion-padding ion-justify-content-center">
+            <ion-buttons>
+                <ion-button (click)="appConfig.back()" class="icon-only" size="large">
+                    {{ 'edit.form.buttons.cancel' | translate }}
+                </ion-button>
+                <ion-button (click)="save()" class="icon-only purple" size="large">
+                    {{ 'edit.form.buttons.save' | translate }}
+                </ion-button>
+            </ion-buttons>
+        </ion-row>
+    </ion-card>
+</ion-content>

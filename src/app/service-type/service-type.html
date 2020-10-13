@@ -1,0 +1,150 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-icon (click)="appConfig.back()" name="arrow-back-outline" size="large"></ion-icon>
+        </ion-buttons>
+        <ion-title>{{ service.name }}</ion-title>
+        <ion-buttons slot="end">
+            <button (click)="processOrder()">
+                Continuar
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <div *ngIf="service.name == 'Encomiendas'">
+        <ion-list>
+            <ion-item>
+                <ion-label position="floating">Producto a enviar</ion-label>
+                <ion-input [(ngModel)]="name" placeholder="" type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Especifícanos tu pedido</ion-label>
+                <ion-textarea [(ngModel)]="description" placeholder="" type="text"></ion-textarea>
+            </ion-item>
+
+            <ion-item lines="none">
+                <ion-label class="font-weight-bold">
+                    <ion-icon name="archive-outline"></ion-icon>
+                    Paquete
+                </ion-label>
+            </ion-item>
+            <ion-item lines="no-lines">
+                <ion-label class="font-weight-bold">Peso promedio del producto</ion-label>
+                <ion-item lines="none" class="ion-no-padding ion-text-center">
+                    <ion-icon name="remove-circle-outline" (click)="less('weight')"></ion-icon>
+                    <ion-label class="w-100">{{weight || '0'}} Kg</ion-label>
+                    <ion-icon slot="end" name="add-circle-outline" (click)="more('weight')"></ion-icon>
+                </ion-item>
+            </ion-item>
+            <!--<ion-item>
+                <ion-label class="title_surt">¿Necesita surtidor?</ion-label>
+                <ion-checkbox [(ngModel)]="sustituir"></ion-checkbox>
+            </ion-item>-->
+            <ion-item lines="no-lines">
+                <ion-label class="font-weight-bold">Cantidad</ion-label>
+                <ion-item lines="none" class="ion-no-padding ion-text-center">
+                    <ion-icon name="remove-circle-outline" (click)="less('quanty')"></ion-icon>
+                    <ion-label class="w-100">{{quanty}} {{type}}{{quanty > 1 ? 's' : ''}}</ion-label>
+                    <ion-icon slot="end" name="add-circle-outline" (click)="more('quanty')"></ion-icon>
+                </ion-item>
+            </ion-item>
+
+            <ion-label class="title_enc">
+                <ion-icon ios="ios-navigate-outline" md="md-navigate-outline"></ion-icon>
+                Seleccione medida del paquete
+            </ion-label>
+
+            <ion-slides #slides pager="true" (ionSlideDidChange)="slideChanged()">
+                <ion-slide [id]="s.size" *ngFor="let s of sliders">
+                    <ion-img alt="" [src]="s.img"></ion-img>
+                </ion-slide>
+            </ion-slides>
+
+            <ion-label class="title_enc">
+                <ion-icon ios="navigate-outline" md="navigate-outline"></ion-icon>
+                Indique dirección de entrega
+            </ion-label>
+            <ion-searchbar (ionCancel)="dismissPlace()" (ionInput)="updatePlace()" [(ngModel)]="query"
+                           [showCancelButton]="true" placeholder="Buscar" class="search"></ion-searchbar>
+            <ion-list>
+                <ion-item (click)="chooseItem(item)" *ngFor="let item of autocompleteItems" class="ion-tappable">
+                    {{ item.description }}
+                </ion-item>
+            </ion-list>
+
+        </ion-list>
+    </div>
+
+    <div *ngIf="service.name == 'Antojos'">
+        <ion-list style="margin-top: 20px">
+            <ion-item>
+                <ion-label position="floating">¿Qué te provoca?</ion-label>
+                <ion-input [(ngModel)]="name" type="text"></ion-input>
+            </ion-item>
+            <ion-item color="no-lines">
+                <h2 class="title_q align-self-start">Cantidad</h2>
+                <div class="iflex align-self-end">
+                    <ion-icon (click)="less('quanty')" item-padding name="remove-circle-outline"></ion-icon>
+                    <h2>{{quanty}}</h2>
+                    <ion-icon (click)="more('quanty')" item-padding name="add-circle-outline"></ion-icon>
+                </div>
+            </ion-item>
+            <ion-label class="label-margin">¿Tú antojo tiene un lugar en especial?</ion-label>
+            <ion-searchbar (ionCancel)="dismissPlace()" (ionInput)="updatePlace()" [(ngModel)]="query"
+                           [showCancelButton]="true" placeholder="Buscar"></ion-searchbar>
+            <ion-list>
+                <ion-item (click)="chooseItem(item)" *ngFor="let item of autocompleteItems" class="ion-tappable">
+                    <ion-icon name="pin" slot="start"></ion-icon>
+                    <h2>{{ item.description }}</h2>
+                </ion-item>
+            </ion-list>
+            <ion-fab #fab class="float-right align-top">
+                <button (click)="addItem()" class="btn_k add_product ion-fab float-right">
+                    <ion-icon name="add-outline"></ion-icon>
+                </button>
+            </ion-fab>
+        </ion-list>
+        <ion-list>
+            <ion-item *ngFor="let product of items; let i = index" class="item_k ion-tappable">
+                <h2>{{product.quanty}} {{ product.name }}</h2>
+                <h3 class="icon_margin text-wrap">{{ product.query }}</h3>
+                <div class="icons_product">
+                    <button (click)="uptProduct(i, product)" class="icon-only">
+                        <ion-icon name="create-outline"></ion-icon>
+                    </button>
+                    <button (click)="delProduct(i)" class="icon-only">
+                        <ion-icon name="close-circle-outline"></ion-icon>
+                    </button>
+                </div>
+            </ion-item>
+        </ion-list>
+
+    </div>
+
+    <div *ngIf="service.name == 'Mandados'">
+        <ion-list>
+            <ion-item>
+                <ion-label class="title_services" position="floating">¿Qué favor necesitas?</ion-label>
+                <ion-input [(ngModel)]="name" type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Describenos un poco más</ion-label>
+                <ion-textarea [(ngModel)]="description" type="text"></ion-textarea>
+            </ion-item>
+            <ion-label class="label-margin">¿Dónde está tu mandado?</ion-label>
+            <ion-searchbar (ionCancel)="dismissPlace()" (ionInput)="updatePlace()" [(ngModel)]="query"
+                           [showCancelButton]="true" placeholder="Buscar"></ion-searchbar>
+
+
+            <ion-list>
+                <ion-item (click)="chooseItem(item)" *ngFor="let item of autocompleteItems" class="ion-tappable">
+                    {{ item.description }}
+                </ion-item>
+            </ion-list>
+        </ion-list>
+
+    </div>
+    <div id="map"></div>
+</ion-content>

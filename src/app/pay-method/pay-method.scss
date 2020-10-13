@@ -1,0 +1,78 @@
+.header-titles {
+  //padding-bottom: 48px;
+  ion-title {
+    font-size: x-large;
+
+  }
+
+  ion-label {
+    font-size: smaller;
+    padding: 0 20px;
+  }
+}
+
+ion-title, ion-label {
+  color: black;
+}
+
+ion-list {
+  padding-left: 16px;
+  //padding-right: 32px;
+  padding-right: 16px;
+
+  ion-radio-group {
+    ion-title {
+      padding-top: 16px;
+    }
+
+
+    ion-item {
+      --background: #dbdbdb;
+
+    }
+
+    .card {
+      --border-radius: 0.5rem;
+
+      ion-avatar {
+        height: 20px;
+        width: 45px;
+        margin-right: 16px;
+        --border-radius: none;
+      }
+
+      .new-card {
+        color: #2b2254;
+        font-size: small;
+        padding-top: 8px;
+      }
+
+      .delete {
+        color: #2b2254;
+        //font-size: smaller;
+        font-weight: bold;
+        width: 100% !important;
+
+      }
+    }
+
+    .delivery {
+      margin-top: 1px;
+      margin-bottom: 1px;
+    }
+
+    .first-delivery {
+      --border-radius: 0.5rem 0.5rem 0 0;
+    }
+
+    .last-delivery {
+      --border-radius: 0 0 0.5rem 0.5rem;
+    }
+  }
+}
+
+.pedido {
+  height: 56px !important;
+  font-size: larger;
+  text-transform: capitalize;
+}

@@ -1,0 +1,120 @@
+.scroll-content {
+  margin-top: 55px !important;
+  margin-bottom: 20px !important;
+}
+
+#map-container {
+  display: block;
+  width: 100%;
+  height: 95%;
+}
+
+.scroll-content {
+  padding: 0 !important;
+}
+
+.search_home {
+  color: #515151;
+}
+
+.text-input[disabled] {
+  opacity: 0.8;
+  font-size: 15px;
+}
+
+.item_home {
+  padding: 0;
+  position: absolute;
+  top: 100px;
+  z-index: 999;
+  width: 90%;
+  margin-left: 15px;
+  border: 1px solid #11d58e;
+  border-radius: 10px;
+}
+
+.services {
+  position: absolute;
+  height: 65%;
+  top: 160px;
+  width: 80%;
+  margin: 0 10%;
+}
+
+.services-btn {
+  position: absolute;
+  height: 20%;
+  bottom: 0;
+  width: 80%;
+  margin: 0 10%;
+}
+
+.button-md {
+  font-size: 14px;
+}
+
+.address {
+  font-size: 10px;
+  text-align: center;
+  width: 65px;
+  text-overflow: ellipsis;
+  white-space: nowrap !important;
+  overflow: hidden;
+  display: block;
+  color: #000000;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.address button {
+  background: white;
+  color: #6b6b6b;
+}
+
+.close_services {
+  float: right;
+  width: 30px;
+  height: 30px;
+  bottom: 60px;
+  background-color: #11d58e;
+}
+
+.fab-md.activated {
+  background: #11d58e;
+}
+
+::-webkit-input-placeholder {
+  color: #515151 !important;
+}
+
+.search_icon_home {
+  margin-left: 15px;
+  color: #505050 !important;
+}
+
+.back_button_home {
+  width: 25px;
+  height: 25px;
+
+  ion-icon {
+    font-size: 32px;
+  }
+}
+
+.bar-buttons {
+  position: absolute;
+  margin-top: -5px;
+  left: 10px;
+}
+
+.btn_back_home {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  color: #0873a5;
+}
+
+.text-blue {
+  color: #4287f5;
+  cursor: pointer;
+}

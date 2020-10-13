@@ -1,0 +1,46 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons class="blue" (click)="back()">
+            <ion-icon size="small" name="arrow-back-outline"></ion-icon>
+            <ion-title size="small" class="ion-no-padding">
+                {{ 'favorites.back' | translate }}
+            </ion-title>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-item class="title" lines="none">
+        <ion-text>
+            <h2>{{ 'favorites.title' | translate }}</h2>
+        </ion-text>
+    </ion-item>
+
+    <ion-title class="subtitle">{{ 'favorites.store' | translate }}</ion-title>
+
+    <ion-list class="ion-no-padding">
+        <ion-item *ngFor="let store of storesFavorite" class="ion-padding-horizontal" lines="none" routerLink="#">
+            <ion-avatar>
+                <ion-avatar>
+                    <img alt="" [src]="store.store.logo">
+                </ion-avatar>
+            </ion-avatar>
+            <ion-title>{{store.store.name}}</ion-title>
+        </ion-item>
+    </ion-list>
+
+    <ion-title class="subtitle">{{ 'favorites.products' | translate }}</ion-title>
+
+    <ion-list class="ion-no-padding">
+        <ion-item *ngFor="let product of productsFavorite" class="ion-padding-horizontal" lines="none" (click)="showDetail(product)">
+            <ion-avatar>
+                <ion-avatar *ngIf="product.images">
+                    <img alt="" [src]="product.images[0].url">
+                </ion-avatar>
+            </ion-avatar>
+            <ion-title>{{product.name}}</ion-title>
+        </ion-item>
+    </ion-list>
+
+</ion-content>

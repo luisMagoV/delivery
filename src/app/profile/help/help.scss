@@ -1,0 +1,39 @@
+ion-toolbar, ion-content {
+  --background: #f8f8f8;
+}
+
+.blue {
+  color: #1673a5 !important;
+}
+
+
+.title {
+  font-size: 28px;
+  font-weight: bolder;
+  color: black;
+  --background: #f8f8f8;
+  padding-right: 16px;
+  margin-bottom: 8px;
+}
+
+ion-card {
+  height: 67vh;
+  margin-top: 64px;
+}
+
+ion-card, .elem {
+  border-radius: 2rem;
+}
+
+.elem {
+  --background: #d0d0d0;
+  margin-top: 32px;
+}
+
+ion-item + .grey-line {
+  --border-color: grey;
+}
+
+ion-item + .black-line {
+  --border-color: black;
+}

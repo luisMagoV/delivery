@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Agregar tu nueva dirección
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-searchbar (ionInput)="updateSearchResults()" [(ngModel)]="autocomplete.input" placeholder="Indica tu ubicación"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list [hidden]="autocompleteItems.length == 0">
+    <ion-item (click)="selectSearchResult(item)" *ngFor="let item of autocompleteItems" class="ion-tappable input-text">
+      {{ item.description }}
+    </ion-item>
+  </ion-list>
+  <div id='map'></div>
+</ion-content>
+<ion-footer>
+  <ion-button color="primary" expand="full" (click)="saveData()" size="large">Guardar Dirección</ion-button >
+</ion-footer>

@@ -1,0 +1,40 @@
+{
+  "prizes": {
+    "back": "Back",
+    "title": "Gift Cards",
+    "points": "Available Points: ",
+    "details": "See details of my points and redemption history",
+    "exchange": "Accumulate points for each delivery made with togo<br />and earn them for these prizes",
+    "terms": "See terms and conditions",
+    "exchangePoints": "Redeem"
+  },
+  "legal": {
+    "agree": "Agree"
+  },
+  "history": {
+    "back": "Back",
+    "title": "Points Details",
+    "points": {
+      "accumulated": "TOTAL POINTS ACCUMULATED",
+      "exchanged": "TOTAL POINTS REDEEMED",
+      "available": "TOTAL POINTS AVAILABLE"
+    },
+    "cards": {
+      "date": "Date",
+      "exchanged": "Points",
+      "prize": "Gift",
+      "code": "Code" 
+    },
+    "history": "Exchange History",
+    "no-history": "You have no redeemed prizes",
+    "card": {
+      "date": "EXCHANGE DATE",
+      "exchanged": "POINTS REDEEMED",
+      "prize": "PRIZE",
+      "code": "CODE"
+    }
+  },
+  "congrats": {
+    "details": "Details"
+  }
+}

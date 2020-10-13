@@ -1,0 +1,50 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons class="text-blue" (click)="back()">
+            <ion-icon size="small" name="arrow-back-outline"></ion-icon>
+            <ion-title size="small" class="ion-no-padding">
+                Atras
+            </ion-title>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-item>
+        <ion-label color="primary" class="font-weight-bold x-large text-wrap">Ingresa a Togo con tu número celular</ion-label>
+    </ion-item>
+
+    <form #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" novalidate>
+        <ion-item>
+            <ion-item class="phone w-100 rounded-pill">
+                <ion-select class="border-right border-dark" name="extphone" #extphone="ngModel" [(ngModel)]="model.extphone">
+                    <ion-select-option aria-selected="true" value="+57" color="primary">
+                        <span class="flag-icon flag-icon-gr"></span>
+                        +507
+                    </ion-select-option>
+                </ion-select>
+                <ion-input color="primary" type="phone" placeholder="Escribe tu número" minlength="6" maxlength="19" class="ion-padding-start ion-margin-start" name="phone" required #phone="ngModel" [(ngModel)]="model.phone"></ion-input>
+            </ion-item>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary" class="font-weight-bold small text-wrap">Enviaremos un mensaje a este número con un código de confirmación.</ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-button [disabled]="!f.valid" shape="round" expand="block" class="w-100">
+                <ion-icon name="logo-whatsapp" slot="start"></ion-icon>
+                <ion-label>Recibir código por Whatsapp</ion-label>
+            </ion-button>
+        </ion-item>
+        <ion-item>
+            <ion-button [disabled]="!f.valid" shape="round" expand="block" class="w-100">
+                <ion-label>Recibir código por SMS</ion-label>
+            </ion-button>
+        </ion-item>
+        <ion-item>
+            <ion-checkbox aria-checked="true" checked="checked"></ion-checkbox>
+            <ion-label color="primary" class="font-weight-bold small text-wrap ion-padding-start">Acepto recibir mi código de confirmación por Whatsapp/SMS</ion-label>
+        </ion-item>
+    </form>
+
+</ion-content>

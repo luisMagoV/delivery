@@ -1,0 +1,68 @@
+.person {
+  width: 40%;
+}
+
+.bg_image {
+  background-size: 100%;
+}
+
+.service_icon {
+  width: 30px !important;
+  height: 30px !important;
+}
+
+.item_k h2 {
+  margin: 0 !important;
+}
+
+.item-input .label-md {
+  color: #bbbbbb;
+}
+
+.text-input, .text-input-md {
+  color: #515151;
+}
+
+.button-md:hover:not(.disable-hover) {
+  background-color: #10d58e;
+}
+
+.title_center {
+  margin-top: 10px;
+  text-align: center;
+
+  h1 {
+    font-family: MarkPro;
+    font-weight: 600;
+    color: white;
+    font-size: 30px;
+  }
+
+  h2 {
+    font-family: MarkPro;
+  }
+
+  span, p {
+    font-family: MarkPro;
+    font-weight: 200;
+    color: white !important;
+  }
+}
+
+.p_text {
+  font-family: MarkPro;
+  font-size: 22px !important;
+  text-align: center;
+  color: #656565;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.btn-h {
+  margin-top: 40px;
+  height: 40px;
+}
+
+.item-md {
+  background: transparent;
+}

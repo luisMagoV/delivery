@@ -1,0 +1,193 @@
+<ion-header class="ion-no-border" >
+    <ion-toolbar>
+        <ion-buttons *ngIf="!appConfig.hasFavorite" slot="end">
+            <ion-button (click)="loadAddress()">
+                <ion-icon name="close-circle-outline" size="large"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-item lines="none">
+            <img alt="" class="img-logo" src="assets/img/logo_home.png">
+            <ion-title class="ion-no-padding" slot="end">to go for you.</ion-title>
+        </ion-item>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="card-background-page">
+
+    <page-select-address *ngIf="!appConfig.hasFavorite" auto="true"></page-select-address>
+
+    <div *ngIf="appConfig.hasFavorite">
+        <ion-row class="ion-padding-end">
+            <ion-col size="7.2">
+                <ion-title>
+                    <ion-label class="black"> {{ 'category.header.greeting' | translate }}</ion-label>
+                    <ion-label class="purple"> {{info.name}} </ion-label>
+                </ion-title>
+
+                <ion-title (click)="showAddressSelector()" size="small" class="ion-nowrap direction blue">
+                    <ion-icon name="location"></ion-icon>
+                    <ion-label class="ion-text-wrap">{{ directionName }}</ion-label>
+                    <ion-icon name="caret-down-outline"></ion-icon>
+                </ion-title>
+            </ion-col>
+            <ion-col class="ion-text-center" size="2.3">
+                <ion-item class="item-avatar" lines="none" routerDirection="root" routerLink="/tabs/profile">
+                    <ion-avatar >
+                        <img #avatar alt="" class="img-profile" [src]="info?.avatar || 'assets/img/user.png'"/>
+                    </ion-avatar>
+                </ion-item>
+                <ion-text>{{ 'category.header.profile' | translate }}</ion-text>
+            </ion-col>
+            <ion-col class="ion-text-center" size="2.3">
+                <ion-item class="item-avatar" lines="none" routerDirection="root" routerLink="/tabs/coupons">
+                    <ion-avatar>
+                        <img alt="" class="img-cupons" [src]="'assets/img/cupones.png'">
+                    </ion-avatar>
+                </ion-item>
+                <ion-text>{{ 'category.header.coupons' | translate }}</ion-text>
+            </ion-col>
+        </ion-row>
+
+        <ion-searchbar class="ion-no-border" (ionChange)="Search($event)" placeholder="{{ 'category.searchbar' | translate }}"></ion-searchbar>
+        <ion-list class="ion-padding-horizontal">
+            <ion-item *ngFor="let store of searchData.stores" (click)="selectStore(store)" lines="none">
+                <ion-avatar>
+                    <img [src]="store.logo">
+                </ion-avatar>
+                <ion-label class="ion-padding-start">{{ store.name }}</ion-label>
+                <ion-text slot="end">{{ 'category.list.store' | translate }}</ion-text>
+            </ion-item>
+            <ion-item *ngFor="let product of searchData.products" (click)="showDetail(product)" lines="none">
+                <ion-avatar>
+                    <img [src]="product?.images[0]?.url">
+                </ion-avatar>
+                <ion-label class="ion-padding-start">{{ product.name }}</ion-label>
+                <ion-text slot="end">{{ 'category.list.product' | translate }}</ion-text>
+            </ion-item>
+        </ion-list>
+
+        <ion-row class="ion-padding ion-justify-content-center grid-item">
+            <ion-col class="ion-no-padding" (click)="selectCategory(category)"  *ngFor="let category of categories;">
+                <ion-item class="ion-no-padding" lines="none">
+                    <ion-col class="ion-no-padding">
+                        <img class="rounded-pill image_cat" alt="" [src]="category.logo" />
+                        <ion-label class="text-center ion-text-wrap">{{category.name}}</ion-label>
+                    </ion-col>
+                </ion-item>
+            </ion-col>
+            <!-- <ion-col class="ion-no-padding" (click)="selectCategory('mensajeria')" >
+                <ion-item class="ion-no-padding" lines="none">
+                    <ion-col class="ion-no-padding">
+                        <img class="rounded-pill image_cat" alt="" />
+                        <ion-label class="text-center ion-text-wrap">Mensajería</ion-label>
+                    </ion-col>
+                </ion-item>
+            </ion-col> -->
+        </ion-row>
+
+        <ion-item-divider></ion-item-divider>
+
+        <ion-slides [options]="slidesOptions" color="yellow">
+            <ion-slide *ngFor="let ban of banners" color="yellow">
+                <ion-card class="slide-banners">
+                    <img alt="" [src]="ban.imageUrl">
+                </ion-card>
+            </ion-slide>
+        </ion-slides>
+
+        <ion-item-divider></ion-item-divider>
+
+        <ion-card class="estado-pedidos" *ngIf="lastOrder" (click)="viewOrder(lastOrder)">
+        <!--<ion-card class="estado-pedidos" *ngIf="lastOrder?.length > 0" (click)="selectProducts()">-->
+            <ion-row class="ion-padding-horizontal ion-padding-top">
+                <ion-label>{{ 'category.order.status' | translate }}</ion-label>
+            </ion-row>
+
+            <ion-row class="ion-padding-horizontal ion-nowrap">
+                <ion-col class="ion-no-padding ion-nowrap ion-text-center">{{ 'category.order.received' | translate }}</ion-col><!-- Valor 5-->
+                <ion-col class="ion-no-padding ion-nowrap ion-text-center">{{ 'category.order.preparing' | translate }}</ion-col><!-- Valor 15-->
+                <ion-col class="ion-no-padding ion-nowrap ion-text-center">{{ 'category.order.delivery' | translate }}</ion-col><!-- Valor 25-->
+                <ion-col class="ion-no-padding ion-nowrap ion-text-center">{{ 'category.order.delivered' | translate }}</ion-col><!-- Valor 35-->
+            </ion-row>
+
+            <ion-row>
+                <!--<ion-range class="ion-no-padding ion-padding-horizontal" min="0" max="100" step="5" value="{{status[pedido.status][1]}}" *ngFor="let pedido of pedidos"></ion-range>-->
+                <ion-range class="ion-no-padding ion-padding-horizontal" min="0" max="100" step="5" value="{{ statusNumber[lastOrder.status] }}"></ion-range>
+            </ion-row>
+        </ion-card>
+
+        <ion-title class="ion-padding-top title">
+            {{ 'category.favorites' | translate }}
+        </ion-title>
+
+        <ion-grid>
+            <ion-row>
+                <ion-col *ngFor="let product of productsFavorite | slice:0:8" (click)="showDetail(product)" class="favoriteProducts" size="3">
+                    <ion-avatar>
+                        <img alt="" [src]="product.images[0].url">
+                    </ion-avatar>
+                    <h6 class="ion-no-margin">{{product.name}}</h6>
+                    <h6 class="price">{{product.price | currency}}</h6>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <ion-title class="ion-padding-top title">
+            {{ 'category.suggested' | translate }}
+        </ion-title>
+
+        <ion-item *ngIf="bannersOutstanding.length > 0" lines="none">
+            <div class="ion-justify-content-between slide_container stores_slide">
+                <div (click)="selectStoreId(banner.store)" class="slide text-center slideStore" *ngFor="let banner of bannersOutstanding">
+                    <ion-card class="grid-card">
+                        <img alt="" [src]="banner.imageUrl">
+                    </ion-card>
+                    <ion-label class="grid-label-stores">{{banner.name}}</ion-label>
+                </div>
+                <!--
+                <div class="slide text-center slideStore">
+                    <ion-card class="grid-card">
+                        <ion-title class="ion-text-center ion-no-padding view-more">VER MÁS <ion-icon name="caret-forward-outline"></ion-icon></ion-title>
+                    </ion-card>
+                </div>
+                -->
+            </div>
+        </ion-item>
+
+        <ion-title class="ion-padding-top title">
+            {{ 'category.new' | translate }}
+        </ion-title>
+
+        <ion-item *ngIf="bannersNews.length > 0" lines="none">
+            <div class="ion-justify-content-between slide_container stores_slide">
+                <div (click)="selectStoreId(banner.store)" class="slide text-center slideStore" *ngFor="let banner of bannersNews">
+                    <ion-card class="grid-card">
+                        <img alt="" [src]="banner.imageUrl">
+                    </ion-card>
+                    <ion-label class="grid-label-stores">{{banner.name}}</ion-label>
+                </div>
+                <!--
+                <div class="slide text-center slideStore">
+                    <ion-card class="grid-card">
+                        <ion-title class="ion-text-center ion-no-padding view-more">VER MÁS <ion-icon name="caret-forward-outline"></ion-icon></ion-title>
+                    </ion-card>
+                </div>
+                -->
+            </div>
+        </ion-item>
+
+        <ion-title class="ion-padding-top title">
+            {{ 'category.promotions' | translate }}
+        </ion-title>
+
+        <ion-slides [options]="slidesOptions" color="yellow">
+            <ion-slide *ngFor="let ban of bannersLatestPromotions" color="yellow">
+                <ion-card class="slide-card" (click)="navigate(ban.link)">
+                    <img alt="" [src]="ban.imageUrl">
+                </ion-card>
+            </ion-slide>
+        </ion-slides>
+    </div>
+
+
+</ion-content>

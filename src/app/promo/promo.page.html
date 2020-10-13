@@ -1,0 +1,66 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-item class="ion-no-padding" lines="none">
+        <ion-title class="ion-padding-start title" size="large" slot="start">{{ 'promo.title' | translate }}</ion-title>
+        <ion-icon (click)="back()" name="close-outline" size="small" color="grey" slot="end"></ion-icon>
+    </ion-item>
+
+    <ion-slides [options]="slidesOptionsBannners" color="yellow">
+        <ion-slide *ngFor="let ban of bannersPromotions" color="yellow">
+            <div>
+                <ion-card class="slide-banners">
+                    <img alt="" [src]="ban.imageUrl">
+                    <ion-card-content class="ion-no-padding">
+                        <ion-label class="ion-float-left ion-no-padding">{{ 'promo.promo.terms' | translate }}</ion-label>
+                    </ion-card-content>
+                </ion-card>
+            </div>
+        </ion-slide>
+    </ion-slides>
+
+    <ion-card class="cupons">
+        <ion-title>{{ 'promo.coupons.title' | translate }}</ion-title>
+        <ion-label [innerHTML]="'promo.coupons.label' | translate"></ion-label>
+        <ion-button routerDirection="root" routerLink="/tabs/coupons">{{ 'promo.coupons.button' | translate }}</ion-button>
+    </ion-card>
+
+    <ion-item class="ion-no-padding" lines="none">
+        <ion-title class="ion-padding-start title" size="large" slot="start">{{ 'promo.offers' | translate }}</ion-title>
+    </ion-item>
+
+    <ion-item *ngIf="bannersStorePromotions.length > 0" lines="none">
+        <div class="ion-justify-content-between slide_container stores_slide">
+            <div (click)="selectStoreBanner(banner)" class="slide text-left ion-no-margin slideStore" *ngFor="let banner of bannersStorePromotions">
+                <ion-card class="grid-card">
+                    <img alt="" [src]="banner.imageUrl">
+                </ion-card>
+                <ion-label class="grid-label-stores name">{{banner.name}}</ion-label>
+                <ion-label class="grid-label-stores">{{banner.description}}</ion-label>
+            </div>
+        </div>
+    </ion-item>
+
+    <ion-item class="ion-no-padding" lines="none">
+        <ion-title class="ion-padding-start title" size="large" slot="start">{{ 'promo.sessions' | translate }}</ion-title>
+    </ion-item>
+
+    <ion-list>
+        <ion-item class="ion-padding-horizontal" *ngFor="let favCat of favoriteCategories" (click)="selectCategory(favCat)" lines="none">
+            <ion-avatar>
+                <img [src]="favCat.logo">
+            </ion-avatar>
+            <div>
+                <ion-title class="category">{{favCat.name}}</ion-title>
+                <ion-title class="description">{{favCat.description}}</ion-title>
+            </div>
+            <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+        </ion-item>
+    </ion-list>
+
+</ion-content>

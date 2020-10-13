@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Servicios
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <p class="p_text">¿Necesitas de otros servicios?</p>
+  <ion-item class="p-t-50 no-lines text-center">
+    <img alt="" class="person" src="assets/img/personaje.svg"/>
+  </ion-item>
+
+  <ion-card>
+    <ion-item (click)="sendService('electricidad')">
+      <ion-avatar slot="start">
+        <img alt="" class="service_icon" src="assets/img/electricidad.svg">
+      </ion-avatar>
+      <h2>Electricidad</h2>
+    </ion-item>
+    <ion-item (click)="sendService('plomeria')">
+      <ion-avatar slot="start">
+        <img alt="" class="service_icon" src="assets/img/plomeria.svg">
+      </ion-avatar>
+      <h2>Plomería</h2>
+    </ion-item>
+    <ion-item (click)="sendService('refrigeracion')">
+      <ion-avatar slot="start">
+        <img alt="" class="service_icon" src="assets/img/refrigeracion.svg">
+      </ion-avatar>
+      <h2>Refrigeración</h2>
+    </ion-item>
+    <ion-item (click)="sendService('servicio_adicional')">
+      <ion-avatar slot="start">
+        <img alt="" class="service_icon" src="assets/img/servicio_adicional.svg">
+      </ion-avatar>
+      <h2>Servicios Adicionales</h2>
+    </ion-item>
+  </ion-card>
+</ion-content>

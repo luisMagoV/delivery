@@ -1,0 +1,115 @@
+ion-toolbar, ion-content, ion-item-divider, .title, .details, .exchange, .terms {
+  --background: #f8f8f8;
+}
+
+.blue {
+  color: #1673a5 !important;
+}
+
+.title {
+  ion-title {
+    color: black;
+    font-size: x-large;
+    font-weight: bold;
+  }
+}
+
+.points {
+  //  height: min-content !important;
+  --border-radius: 2rem;
+  ion-avatar {
+    width: 16px;
+    height: 16px;
+  }
+  .text {
+    color: black;
+    min-width: fit-content;
+    white-space: nowrap !important;
+    float: right;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .points_number {
+    font-weight: bold;
+  }
+}
+
+ion-item-divider {
+  min-height: 10px;
+}
+
+.details {
+  ion-title {
+    color: black;
+    font-size: x-small;
+    font-weight: bold;
+    //float: left;
+  }
+  ion-icon {
+    color: black;
+    //float: left;
+  }
+}
+
+.exchange {
+  ion-title {
+    color: black;
+    font-size: small;
+  }
+}
+
+.terms {
+  ion-title {
+    color: black;
+    font-size: xx-small;
+    max-width: fit-content;
+    padding-right: 0;
+  }
+  ion-icon {
+    color: black;
+    float: left;
+  }
+}
+
+ion-card {
+  border-radius: 8px;
+  img {
+    border-radius: 8px;
+  }
+  ion-card-header {
+    padding: 4px;
+    ion-card-title, ion-card-subtitle {
+      font-size: 12px;
+    }
+    ion-card-title {
+      color: black;
+      font-weight: bold;
+    }
+    ion-card-subtitle {
+      color: grey;
+      margin-top: 2px;
+    }
+  }
+  ion-card-content {
+    padding: 0;
+    border-color: #2b2254;
+    border-width: 2px;
+    border-top-style: solid;
+
+    ion-row {
+      background: #2b2254;
+
+    }
+    .points {
+      font-size: large;
+      font-weight: bolder;
+      background: white;
+      color: #2b2254;
+    }
+    .exchange {
+      font-size: small;
+      font-weight: bold;
+      color: white;
+    }
+  }
+}

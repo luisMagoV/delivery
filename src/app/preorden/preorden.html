@@ -1,0 +1,327 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-icon (click)="back()" name="arrow-back-outline" size="large"></ion-icon>
+        </ion-buttons>
+        <ion-title>{{ 'preorden.header' | translate }}</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="closeOrder()">
+                <ion-icon name="close-outline" size="large"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+    <div *ngIf="service.code != 'type_store'">
+        <div class="market text-center">
+            <img *ngIf="service.name != '' && service.name !== 'Mensajería'" [src]="service.icon_path" [alt]="service.name" class="image_store">
+            <img *ngIf="service.name == 'Mensajería'" src="../../assets/img/messaging-logo.png" [alt]="service.name" class="image_store">
+            <p *ngIf="!service.code" class="service_title">{{ 'preorden.service' | translate }}</p>
+            <h5 *ngIf="!service.code" class="name_service_title ion-text-wrap">{{service.name}}</h5>
+        </div>
+        <hr>
+        <div class="deatil">
+            <ion-list>
+                <ion-item *ngIf="this.items[0].super">
+                    <ion-label class="service_title">{{ 'preorden.shopAt' | translate }} {{this.items[0].super}}</ion-label>
+                </ion-item>
+                <ion-list-header>
+                    <b>{{ 'preorden.details' | translate }}</b>
+                </ion-list-header>
+                <ion-item *ngFor="let product of items" class="item_k">
+                    <ion-col *ngIf="service.name == 'Mercado'">
+                        <ion-label><b>{{ 'preorden.product' | translate }} </b> {{ product.name }}</ion-label>
+                        <ion-label>{{ 'preorden.quantity' | translate }} {{ product.quanty }} {{ product.unitType }}</ion-label>
+                        <ion-label class="ion-text-wrap">{{ product.brand }} {{ product.obs}}</ion-label>
+                    </ion-col>
+                    <ion-col *ngIf="service.name == 'Mandados'">
+                        <ion-label><b>{{ 'preorden.product' | translate }} </b> {{ product.name }}</ion-label>
+                        <ion-label>{{ product.description }}</ion-label>
+                        <ion-label class="ion-text-wrap">{{ product.query }}</ion-label>
+                    </ion-col>
+                    <ion-col *ngIf="service.name == 'Encomiendas'">
+                        <ion-label><b>{{ 'preorden.product' | translate }} </b> {{ product.name }}</ion-label>
+                        <ion-label class="ion-text-wrap">Cantidad: {{ product.quanty }} {{ product.type }}</ion-label>
+                    </ion-col>
+                    <ion-col *ngIf="service.name == 'Antojos'">
+                        <ion-label>{{ 'preorden.quantity' | translate }} {{product.quanty}} {{ product.name }}</ion-label>
+                        <ion-label class="ion-text-wrap">{{ product.query }}</ion-label>
+                    </ion-col>
+                </ion-item>
+            </ion-list>
+        </div>
+    </div>
+
+    <!--LIST PRODUCTS STORE-->
+    <div *ngIf="service.code == 'type_store'">
+        <ion-list *ngFor="let storeItem of items">
+            <ion-item>
+                <ion-col class="text-center">
+                    <img class="w-50" *ngIf="items.length < 2" [alt]="storeItem.name" [src]="storeItem.logo || '../../assets/img/no-product-image.png'">
+                    <ion-label class="ion-text-wrap"><b>{{storeItem.name}}</b></ion-label>
+                </ion-col>
+            </ion-item>
+            <div *ngFor="let productItem of storeItem.products">
+                <ion-item class="item_k" *ngIf="productItem?.quantity > 0">
+                    <ion-avatar slot="start">
+                        <img alt="{{productItem.name}}" [src]="productItem.images[0]?.url || '../../assets/img/no-product-image.png'">
+                    </ion-avatar>
+                    <ion-label>{{productItem.quantity}} x {{ productItem.name }}</ion-label>
+                    <ion-label class="price_item">{{productItem.price | currency}}</ion-label>
+                </ion-item>
+            </div>
+        </ion-list>
+    </div>
+
+    <!--RESUMEN-->
+    <ion-list>
+        <ion-list-header>
+            <p class="service_title">
+                <b>{{ 'preorden.order' | translate }}</b>
+            </p>
+        </ion-list-header>
+        <ion-col class="ion-no-padding" *ngIf="originPlace?.place && originPlace?.place?.description !== destination?.place?.description">
+            <ion-item class="item_k">
+                <ion-label class="ion-text-wrap"><b>{{ 'preorden.searchAt' | translate }}</b> {{originPlace?.place?.description || originPlace?.place?.name}}</ion-label>
+            </ion-item>
+        </ion-col>
+        <ion-col class="ion-no-padding" *ngIf="destination?.place">
+            <ion-item class="item_k">
+                <ion-label class="ion-text-wrap"><b>{{ 'preorden.deliveryAt' | translate }}</b> {{destination?.place?.description || destination?.place?.name}}</ion-label>
+            </ion-item>
+        </ion-col>
+        <ion-item *ngIf="service.code" class="item_k">
+            <ion-label>{{ 'preorden.products' | translate }}</ion-label>
+            <ion-label class="price_item">{{priceComplete | currency}}</ion-label>
+        </ion-item>
+        <ion-item *ngIf="service.code" class="item_k">
+            <ion-label>{{ 'preorden.delivery' | translate }}</ion-label>
+            <ion-label class="price_item">{{delivery | currency}}</ion-label>
+        </ion-item>
+        <ion-item *ngIf="service.code" class="item_k">
+            <ion-label>ITBMS</ion-label>
+            <ion-label class="price_item">{{itbmsComplete | currency}}</ion-label>
+        </ion-item>
+        <ion-item *ngIf="service.code" class="item_k">
+            <ion-label>TOTAL</ion-label>
+            <ion-label class="price_item">{{priceCompleteWithItbms | currency}}</ion-label>
+        </ion-item>
+    </ion-list>
+
+    <!--TEXT AREA OBSERVACIONES-->
+    <ion-item>
+        <ion-label position="floating">{{ 'preorden.observations' | translate }}</ion-label>
+        <ion-textarea [(ngModel)]="observaciones"></ion-textarea>
+    </ion-item>
+
+    <!--METODOS DE PAGO-->
+    <!--<ion-list *ngIf="order?.cost > -1 || service.code == 'type_store'" class="list_cards">
+        <ion-radio-group value="cash">
+            <ion-list-header>
+                <p class="service_title">
+                    <b>Método de pago</b>
+                </p>
+            </ion-list-header>
+            <ion-item (click)="changeCard()" *ngIf="paymentType == 'tdc' " button class="item_k" detail>
+                <ion-avatar *ngIf="cardSelected" slot="start">
+                    <img alt="" src="assets/img/{{cardSelected.type.name | lowercase}}.png">
+                </ion-avatar>
+                <ion-icon *ngIf="!cardSelected" name="card-outline"></ion-icon>
+                <ion-label>
+                    {{ cardSelected ? 'XXXX-XXXX-XXXX-' + cardSelected.lastFour : 'Agregar Tarjeta' }}
+                </ion-label>
+                <ion-icon [hidden]="!cardSelected" name="card-outline"></ion-icon>
+            </ion-item>
+
+            <div *ngIf="paymentType == 'ach'">
+                <ion-item *ngFor="let ach of appConfig.configStore.ach">
+                    <ion-col class="item_k">
+                        <ion-label *ngIf="ach.account"><ion-icon name="business-outline"></ion-icon> {{ach.account}}</ion-label>
+                        <ion-label *ngIf="ach.number"><ion-icon name="book-outline"></ion-icon> {{ach.number}}</ion-label>
+                        <ion-label *ngIf="ach.person"><ion-icon name="person-outline"></ion-icon> {{ach.person}}</ion-label>
+                        <hr />
+                    </ion-col>
+                </ion-item>
+            </div>
+
+            <div *ngIf="paymentType == 'yappi'">
+                <ion-item *ngFor="let yappi of appConfig.configStore.yappis">
+                    <ion-col class="item_k">
+                        <ion-label><ion-icon name="book-outline"></ion-icon> {{yappi}}</ion-label>
+                        <hr />
+                    </ion-col>
+                </ion-item>
+            </div>
+            <ion-item class="item_k" *ngIf="appConfig.environment.configStore.tdc">
+                <ion-label>Tarjeta de Crédito</ion-label>
+                <ion-radio (click)="radioChecked('tdc')" slot="start" value="tdc"></ion-radio>
+            </ion-item>
+
+            <ion-item class="item_k" *ngIf="appConfig.environment.configStore.cash">
+                <ion-label>Efectivo</ion-label>
+                <ion-radio (click)="selectCash()" checked slot="start" value="cash"></ion-radio>
+            </ion-item>
+
+            <ion-item class="item_k" *ngIf="appConfig.environment.configStore.pos">
+                <ion-label>Pago con Tarjeta Repartidor</ion-label>
+                <ion-radio (click)="radioChecked('pos')" slot="start" value="pos"></ion-radio>
+            </ion-item>
+
+            <ion-item class="item_k" *ngIf="appConfig.environment.configStore.ach?.length > 0">
+                <ion-label>ACH</ion-label>
+                <ion-radio (click)="radioChecked('ach')" slot="start" value="ach"></ion-radio>
+            </ion-item>
+
+            <ion-item class="item_k" *ngIf="appConfig.configStore.yappis?.length > 0">
+                <ion-label>YAPPI</ion-label>
+                <ion-radio (click)="radioChecked('yappi')" slot="start" value="yappi"></ion-radio>
+            </ion-item>
+
+        </ion-radio-group>
+
+
+        <!- - <ion-radio-group value="biff">
+             <ion-list-header>
+                 <p class="service_title">
+                     <b>Método de pago</b>
+                 </p>
+             </ion-list-header>
+
+             <ion-item (click)="changeCard()">
+                 <ion-avatar *ngIf="cardSelected" slot="start">
+                     <img alt="" src="assets/img/{{cardSelected.type.name | lowercase}}.png">
+                 </ion-avatar>
+
+                 <ion-icon *ngIf="!cardSelected" name="card" slot="start"></ion-icon>
+                 {{ cardSelected ? 'XXXX-XXXX-XXXX-' + cardSelected.lastFour : 'Agregar Tarjeta' }}
+                 <ion-icon [hidden]="!cardSelected" name="ios-checkmark" slot="end"></ion-icon>
+             </ion-item>
+             <ion-item>
+                 <ion-radio (click)="selectCash()" slot="start" value="cash"></ion-radio>
+                 <ion-label slot="start">Efectivo</ion-label>
+             </ion-item>
+         </ion-radio-group>- ->
+    </ion-list>-->
+
+    <!--<hr>-->
+
+    <!--OLD VERSION TEMPLATE-->
+    <div class="order_detail">
+        <!--<p class="service_title">
+            <b>Entrega en:</b> {{originOrder}}</p>
+            <br>-->
+        <ion-item *ngIf="!service.code">
+            <ion-label class="service_title">{{ 'preorden.delivery' | translate }}</ion-label>
+            <ion-label class="price_item">{{order?.cost | currency}}</ion-label>
+        </ion-item>
+        <ion-item *ngIf="!service.code && order?.distance > 0">
+            <ion-label class="service_title">{{ 'preorden.distance' | translate }}</ion-label>
+            <ion-label class="price_item">{{order?.distance}} km</ion-label>
+        </ion-item>
+        <ion-item *ngIf="!service.code">
+            <ion-label class="service_title">TOTAL</ion-label>
+            <ion-label class="price_item">{{order?.cost | currency}}</ion-label>
+        </ion-item>
+        <!-- <p *ngIf="service.code" class="service_title">
+             <b>Productos -----------------------------</b> <span
+                 class="float_rigth">$ {{ priceComplete | money }}</span></p>
+         <p *ngIf="service.code" class="service_title">
+             <b>Entrega -------------------------------</b> <span class="float_rigth">$ 5,00</span></p>
+         <p *ngIf="service.code" class="service_title">
+             <b>TOTAL ---------------------------------</b> <span
+                 class="float_rigth">$ {{ priceComplete + 5 | money }}</span>
+         </p>-->
+        <div *ngIf="promo && promo.length > 0">
+            <p class="service_title">
+                <b>{{ 'preorden.promo' | translate }}</b> {{promo}}
+            </p>
+            <div class="icons_product">
+                <ion-button color="light" (click)="deletePromo()">
+                    <ion-icon name="close-circle-outline"></ion-icon>
+                </ion-button>
+            </div>
+        </div>
+
+
+        <!--<div *ngIf="promo == '' && order?.cost > -1">
+            <ion-item>
+                <ion-label>¿Tienes una promo?</ion-label>
+                <ion-checkbox [(ngModel)]="promocode"></ion-checkbox>
+            </ion-item>
+            <div *ngIf="promocode">
+                <ion-item class="no-padding-top">
+                    <ion-label position="floating">Código promocional</ion-label>
+                    <ion-input [(ngModel)]="code" class="uppertext text-center" type="text"></ion-input>
+                </ion-item>
+                <ion-item class="ion-padding" lines="none">
+                    <ion-button (click)="send()" expand="block" class="w-100">
+                        <ion-label class="icon_text">Enviar</ion-label>
+                    </ion-button>
+                </ion-item>
+            </div>
+        </div>-->
+
+        <!--<ion-list *ngIf="order?.cost != '' || service.code == 'type_store'" class="list_cards">
+            <ion-radio-group value="biff">
+                <ion-list-header>
+                    <p class="service_title">
+                        <b>Método de pago</b>
+                    </p>
+                </ion-list-header>
+                <ion-item (click)="changeCard()">
+                    <ion-avatar *ngIf="cardSelected" slot="start">
+                        <img alt="" src="assets/img/{{cardSelected.type.name | lowercase}}.png">
+                    </ion-avatar>
+                    <ion-icon *ngIf="!cardSelected" name="card" slot="start"></ion-icon>
+                    {{ cardSelected ? 'XXXX-XXXX-XXXX-' + cardSelected.lastFour : 'Agregar Tarjeta' }}
+                    <ion-icon [hidden]="!cardSelected" name="ios-checkmark" slot="end"></ion-icon>
+                </ion-item>
+                <ion-item>
+                    <ion-radio (click)="selectCash()" slot="start" value="cash"></ion-radio>
+                    <ion-label slot="start">Efectivo</ion-label>
+                </ion-item>
+            </ion-radio-group>
+        </ion-list>-->
+    </div>
+
+    <ion-list class="promos">
+        <ion-title>{{ 'preorden.promos' | translate }}</ion-title>
+        <ion-label>{{ 'preorden.select' | translate }}</ion-label>
+
+        <!--
+        <ion-title>Puntos</ion-title>
+        <ion-item lines="none">
+            <ion-input placeholder="125 Disponibles"></ion-input>
+            <ion-button>Canjear</ion-button>
+        </ion-item>
+        -->
+
+        <ion-title>{{ 'preorden.coupon' | translate }}</ion-title>
+        <ion-item lines="none">
+            <ion-input placeholder="Ingresa Código">
+                <ion-button class="add_coupon">+ Elegir cupón</ion-button>
+            </ion-input>
+            <ion-button>{{ 'preorden.redeem' | translate }}</ion-button>
+        </ion-item>
+
+        <ion-title>{{ 'preorden.credit' | translate }}</ion-title>
+        <ion-item lines="none">
+            <ion-input placeholder="$ 5.00 Disponoble"></ion-input>
+            <ion-button>{{ 'preorden.redeem' | translate }}</ion-button>
+        </ion-item>
+
+    </ion-list>
+    <ion-button (click)="openPayPage()" class="margin-auto w-75 continue" shape="round" expand="block">{{ 'preorden.continue' | translate }}</ion-button>
+
+    <!--<div class="info-preorden">
+        <ion-icon class="icon_footer" name="information-circle-outline"></ion-icon>
+        <ion-label class="msg_footer ion-text-wrap">Los servicios pueden incluir porcentajes de comisiones por compras realizadas.
+            <ion-label (click)="openUrl()" class="btn_open_link"> Ver la tabla de comisiones</ion-label>
+        </ion-label>
+    </div>-->
+</ion-content>
+<!--
+<ion-footer class="ion-no-border">
+    <ion-button (click)="approvedOrder()" size="large" mode="ios">Continuar</ion-button>
+</ion-footer>
+-->

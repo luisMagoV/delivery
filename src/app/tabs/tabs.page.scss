@@ -1,0 +1,144 @@
+ion-content {
+  --background: primary;
+}
+
+.tabs-md .tab-button[aria-selected=true] {
+  color: #11d58e;
+}
+
+ion-tab-button {
+  .img-size {
+    height: 32px;
+    width: 32px;
+  }
+
+  ion-label {
+    color: #a0a0a0;
+  }
+}
+
+
+.tabs-md .tab-button[aria-selected=true] .tab-button-icon {
+  color: #11d58e;
+}
+
+.full {
+  width: 100%;
+  height: 100%;
+}
+
+.login-background {
+  background-image: url('../../assets/img/bg2.jpg');
+  background-size: 100%;
+}
+
+.logo_login {
+  margin: auto;
+  width: 100%;
+  text-align: center;
+}
+
+.buttons_login ion-button, .buttons_login button {
+  width: 100%;
+
+  img {
+    max-height: 4rem;
+    margin: auto;
+  }
+}
+
+.light-bg {
+  background-color: #fff;
+  padding: 20px;
+
+  .dark {
+    text-align: center;
+    font-family: 'MarkPro';
+    font-size: 20px;
+    color: #515151;
+  }
+}
+
+.icon_text {
+  margin-left: 10px;
+}
+
+.face {
+  background-color: #3a589a;
+}
+
+.google {
+  background-color: #ff717c;
+
+  :hover {
+  }
+
+}
+
+.google.button-md:hover:not(.disable-hover) {
+  background-color: #ea3e4b;
+}
+
+.button-md {
+  font-family: 'MarkPro-Bold';
+  font-weight: 600;
+  font-size: 12px;
+}
+
+ion-button.apple {
+
+  background-color: black !important;
+  color: white !important;
+  --background: black !important;
+  --color: white !important;
+
+  ion-icon {
+    background-color: black !important;
+    color: white !important;
+    --background: black !important;
+    --color: white !important;
+  }
+
+  * {
+    background-color: black !important;
+    color: white !important;
+    --background: black !important;
+    --color: white !important;
+  }
+
+}
+
+ion-footer {
+  ion-item-divider {
+    min-height: 15px;
+    //padding: 0 16px;
+  }
+
+  ion-label {
+    font-weight: bold;
+  }
+}
+
+
+.login_number {
+  ion-button {
+    --background: linear-gradient(90deg, rgba(75, 62, 135, 1) 0%, rgba(43, 34, 84, 1) 100%);
+    border: solid 3px white;
+    border-radius: 2rem;
+  }
+
+  ion-icon {
+    color: white;
+  }
+
+  ion-label {
+    color: white;
+  }
+}
+
+.login_other {
+  ion-button {
+    --background: white;
+    height: 52px;
+  }
+}

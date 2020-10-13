@@ -1,0 +1,15 @@
+{
+  "promo": {
+    "title": "Promociones",
+    "promo": {
+      "terms": "* Terminos y condiciones"
+    },
+    "coupons": {
+      "title": "¿Tienes un cupón?",
+      "label": "No olvides verificar los detalles <br /> para poder cangearlo. <br />",
+      "button": "Validalo aquí"
+    },
+    "offers": "Las mejores ofertas para ti",
+    "sessions": "Sesiones"
+  }
+}

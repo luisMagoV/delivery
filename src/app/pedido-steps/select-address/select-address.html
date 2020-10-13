@@ -1,0 +1,24 @@
+<ion-toolbar>
+    <ion-title [innerHTML]=" 'select-address.title' | translate "></ion-title>
+</ion-toolbar>
+<ion-card *ngFor="let address of appConfig?.user?.directions; let i = index">
+    <ion-card-content>
+        <h2 class="title-address">{{address.name}}</h2>
+    </ion-card-content>
+    <ion-row>
+        <ion-col>
+            <ion-button (click)="removeAddress(i, address.uuid)" color="danger" fill="clear" icon-only>
+                <ion-icon name="remove-circle-outline" slot="icon-only"></ion-icon>
+                <div>{{ 'select-address.delete' | translate }}</div>
+            </ion-button>
+        </ion-col>
+        <ion-col>
+            <ion-button (click)="setFavorite(address.uuid)" fill="clear" icon-only>
+                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                <div>{{ 'select-address.select' | translate }}</div>
+            </ion-button>
+        </ion-col>
+    </ion-row>
+</ion-card>
+<hr>
+<ion-button (click)="goAddress()" expand="block">{{ 'select-address.add' | translate }}</ion-button>

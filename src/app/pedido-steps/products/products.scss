@@ -1,0 +1,184 @@
+ion-content {
+  --background: #f8f8f8;
+}
+
+ion-header {
+  ion-item {
+    background-color: transparent;
+    position: relative;
+    top: -10px;
+
+    ion-img {
+      background-color: transparent;
+    }
+  }
+}
+
+ion-searchbar {
+  transform: scale(1.2);
+  width: 80%;
+  margin: 0 auto;
+  --color: grey;
+  --box-shadow: none;
+  --border-radius: 0.5rem;
+  --background: #dbdbdb;
+  /*
+  input.searchbar-input {
+    -webkit-padding-end: 0 !important;
+    padding-inline-end: 0 !important;
+  }
+
+   */
+}
+
+ion-item {
+  --background: transparent;
+}
+
+.modal-info {
+  ion-label {
+    padding: 1px 2px;
+  }
+}
+
+.item-info {
+  ion-img, img {
+    max-width: 50px;
+  }
+
+  ion-label {
+    font-size: xx-small;
+    text-align: right;
+  }
+
+  .info {
+    padding: 5px 0;
+    margin: 0 5px;
+  }
+}
+
+.rounded {
+  --border-radius: 2rem;
+}
+
+.title {
+  color: black;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.categorias {
+  font-size: small;
+}
+
+.producto {
+  width: 120px;
+
+  ion-avatar {
+    /*
+    width: 100%;
+    height: auto;
+    */
+    height: 100px !important;
+    width: 100px !important;
+    --border-radius: none;
+  }
+
+  img {
+    height: 100px !important;
+    width: 100px !important;
+  }
+
+  .precio {
+    color: black;
+    font-weight: bold;
+    width: 60px;
+  }
+
+  .ahorro {
+    text-decoration-line: line-through;
+    color: grey;
+  }
+
+  .precio, .ahorro {
+    font-size: medium;
+  }
+
+  .diferencia {
+    color: #2b2254;
+    font-size: small;
+  }
+
+  .nombre {
+    color: black;
+    font-size: small;
+  }
+
+  .boton {
+    font-size: small;
+    --background: white;
+    --color: #2b2254;
+    --border-width: 1px;
+  }
+}
+
+ion-footer {
+  --background: transparent;
+  text-align: center;
+  background-color: #f8f8f8;
+
+  .pagar {
+    --border-radius: 2rem;
+    --background: #2b2254;
+    font-size: 20px;
+
+    .items {
+      background-color: rebeccapurple;
+      border-radius: 4rem;
+      padding-left: 16px;
+      padding-right: 16px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      margin-right: 32px;
+      font-size: 20px;
+    }
+
+    .price {
+      margin-left: 32px;
+      color: white;
+      font-size: 20px;
+    }
+  }
+
+  .vaciar {
+    --background: transparent;
+    font-size: 20px;
+    color: #6b6b6b;
+  }
+}
+
+.footer-md::before {
+  background-image: none;
+}
+
+.white-background {
+  --background: white;
+  background: white;
+}
+
+.slide_container {
+
+  .categories {
+    max-width: 115px;
+
+    img {
+      max-width: 70px;
+      height: 70px;
+    }
+  }
+
+}
+
+.blue {
+  color: #1673a5 !important;
+}

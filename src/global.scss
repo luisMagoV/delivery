@@ -1,0 +1,416 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import '~@ionic/angular/css/core.css';
+
+/* Basic CSS for apps built with Ionic */
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+@font-face {
+  font-family: 'MarkPro';
+  src: url('src/assets/fonts/MarkPro.otf');
+}
+
+@font-face {
+  font-family: 'MarkPro-Bold';
+  src: url('src/assets/fonts/MarkPro-Bold.otf');
+}
+
+body {
+  margin-top: constant(safe-area-inset-top);
+  margin-top: env(safe-area-inset-top);
+}
+
+
+ion-header {
+  z-index: 20;
+}
+
+ion-modal.full-modal {
+  div.modal-wrapper {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.bg_kangaru_h {
+  background: var(--ion-color-client);
+  border: 0;
+  border-color: transparent;
+  ion-toolbar {
+    display: inline;
+    color: white;
+
+    ion-title {
+      text-align: center;
+    }
+  }
+}
+
+.text-gray {
+  color: #666666;
+}
+
+.button-md-secondary, .button-md {
+  height: 40px;
+}
+
+.item-md .item-button {
+  height: 35px;
+}
+
+.fab-md-button_primary {
+  color: #10d38e;
+}
+
+ion-fab[bottom] {
+  bottom: 40%;
+}
+
+.h_logo {
+  text-align: center;
+}
+
+.bg_kangaru_h ion-toolbar {
+  text-align: left;
+}
+
+.toolbar-title-md {
+  font-family: MarkPro-Bold;
+}
+
+ion-toolbar button {
+  background: transparent;
+  color: white;
+  //   font-size: 32px;
+}
+
+.item_k {
+  color: #515151;
+  font-family: MarkPro;
+}
+
+.item-md ion-avatar ion-img, .item-md ion-avatar img {
+  width: 45px;
+  height: 45px;
+}
+
+ion-toolbar ion-buttons button {
+  font-size: 16px;
+  font-weight: 600;
+
+  ion-icon {
+    font-size: 30px;
+  }
+}
+
+.white_btn {
+  margin-top: 15px;
+  height: 30px;
+  color: #515151;
+}
+
+.type_product .button-md:hover:not(.disable-hover) {
+  background-color: #10d58e;
+}
+
+.service_title {
+  font-family: MarkPro;
+  color: #515151;
+  margin-bottom: 1px;
+}
+
+.name_service_title {
+  font-family: MarkPro-Bold;
+  color: #515151;
+  margin-top: 1px;
+}
+
+/* Nuevas sentencias */
+.no-padding-top {
+  padding: 0 16px 16px;
+}
+
+.link {
+  color: rgb(68, 178, 209);
+  text-decoration: none;
+}
+
+.link-green {
+  color: #167dff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.link:focus, .link:active {
+  text-decoration: none;
+}
+
+.center-title-button {
+  padding-left: 67px;
+}
+
+.text-inactive {
+  color: #d9d9d9;
+}
+
+.color-green {
+  color: rgb(16, 213, 142);
+}
+
+.bg-green {
+  background-color: rgb(16, 213, 142);
+  color: #ffffff;
+}
+
+[text-bold] {
+  font-weight: 600 !important;
+}
+
+[index-1] {
+  z-index: 9999 !important;
+}
+
+.uppertext {
+  text-transform: uppercase;
+}
+
+.input-cover {
+  display: none;
+}
+
+.button-md:hover:not(.disable-hover) {
+  background: #10d58e;
+}
+
+.button-ios:hover:not(.disable-hover) {
+  background: #10d58e;
+}
+
+.button-md.activated {
+  background: #10d58e;
+}
+
+.button-ios.activated {
+  background: #10d58e;
+}
+
+ion-footer ion-toolbar {
+  background-color: rgb(236, 236, 236);
+}
+
+.msg_footer {
+  width: 85%;
+  float: right;
+  color: rgb(81, 81, 81);
+  font-family: MarkPro;
+  font-size: 12px;
+  padding-right: 30px;
+}
+
+.icon_footer {
+  margin-left: 10px;
+  font-size: 30px;
+  margin-top: 15px;
+  color: rgb(81, 81, 81);
+}
+
+.btn_open_link {
+  background: transparent;
+  padding: 0;
+  color: #146ea5;
+  font-family: MarkPro;
+}
+
+.icon_chat_size {
+  font-size: 0.8em;
+}
+
+.slide_container {
+  max-width: 100%;
+  overflow: auto;
+  display: inline-flex;
+
+  .slide {
+    float: left;
+    margin: 0 5px;
+    display: inline-block;
+
+    img, ion-img, ion-avatar {
+      margin: auto;
+    }
+  }
+
+}
+
+.w-10 {
+  width: 10% !important;
+}
+
+.w-20 {
+  width: 20% !important;
+}
+
+.w-30 {
+  width: 30% !important;
+}
+
+.w-40 {
+  width: 40% !important;
+}
+
+.w-60 {
+  width: 60% !important;
+}
+
+.w-70 {
+  width: 70% !important;
+}
+
+.w-80 {
+  width: 80% !important;
+}
+
+.w-90 {
+  width: 90% !important;
+}
+
+.first-rounded {
+  --border-radius: 0.5rem 0.5rem 0 0 !important;
+  border-radius: 0.5rem 0.5rem 0 0 !important;
+}
+
+.content-rounded {
+  --border-radius: 0 !important;
+  border-radius: 0 !important;
+}
+
+.last-rounded {
+  --border-radius: 0 0 0.5rem 0.5rem !important;
+  border-radius: 0 0 0.5rem 0.5rem !important;
+}
+
+.middle-content {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.content-align {
+  position: relative;
+
+  .top-content {
+    margin: 0;
+    position: absolute;
+    width: 100%;
+    top: 0;
+  }
+
+  .middle-content {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+  }
+
+  .bottom-content {
+    margin: 0;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+  }
+}
+
+.margin-auto {
+  margin: auto !important;
+}
+
+.display-contents {
+  display: contents !important;
+}
+
+.width-content {
+  width: fit-content !important;
+}
+
+.xx-large {
+  font-size: xx-large !important;
+}
+
+.x-large {
+  font-size: x-large !important;
+}
+
+.large {
+  font-size: large !important;
+}
+
+.medium {
+  font-size: medium !important;
+}
+
+.small {
+  font-size: small !important;
+}
+
+.x-small {
+  font-size: x-small !important;
+}
+
+.xx-small {
+  font-size: xx-small !important;
+}
+
+.bg-transparent {
+  background-color: transparent !important;
+  --background: transparent !important;
+}
+
+.alertsPrize {
+  --background: #f8f8f8;
+  .alert-title, .alert-message {
+    color: black;
+  }
+}

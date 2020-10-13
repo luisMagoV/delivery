@@ -1,0 +1,56 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons class="text-blue" (click)="back()">
+            <ion-icon size="small" name="arrow-back-outline"></ion-icon>
+            <ion-title size="small" class="ion-no-padding">
+                {{ 'login-buttons.back' | translate }}
+            </ion-title>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-item>
+        <ion-label color="primary" class="font-weight-bold">{{ 'login-buttons.other' | translate }}</ion-label>
+    </ion-item>
+
+    <ion-col class="ion-padding">
+        <ion-button (click)="appleLogin()" size="large" expand="block" class="w-100 text-center apple" *ngIf="appConfig.environment.login.apple && appConfig?.device?.operatingSystem === 'ios'">
+            <ion-item lines="none" class="ion-no-padding w-100 h-100 text-center bg-transparent">
+                <ion-avatar>
+                    <img alt="" src="../../assets/img/apple_logo.png"/>
+                </ion-avatar>
+                <ion-label color="light" class="medium ion-text-wrap text-center ion-padding-start font-weight-bold ion-text-uppercase">{{ 'login-buttons.apple' | translate }}</ion-label>
+            </ion-item>
+        </ion-button>
+        <ion-button (click)="googleLogin()" fill="outline" size="large" expand="block" shape="round" class="w-100 text-center" *ngIf="appConfig.environment.login.google">
+            <ion-item lines="none" class="ion-no-padding w-100 h-100 text-center bg-transparent">
+                <ion-avatar>
+                    <img alt="" src="../../assets/img/google_logo.png"/>
+                </ion-avatar>
+                <ion-label class="medium ion-text-wrap text-center ion-padding-start font-weight-bold" color="primary">{{ 'login-buttons.google' | translate }}</ion-label>
+            </ion-item>
+        </ion-button>
+        <ion-button (click)="facebookLogin()" fill="outline" size="large" expand="block" shape="round" class="w-100 text-center" *ngIf="appConfig.environment.login.facebook">
+            <ion-item lines="none" class="ion-no-padding w-100 h-100 text-center bg-transparent">
+                <ion-avatar>
+                    <img alt="" src="../../assets/img/facebook_logo.png"/>
+                </ion-avatar>
+                <ion-label class="medium ion-text-wrap text-center ion-padding-start font-weight-bold" color="primary">{{ 'login-buttons.facebook' | translate }}</ion-label>
+            </ion-item>
+        </ion-button>
+
+        <ion-button (click)="loginNo()" size="large" color="secondary" shape="round" expand="block" class="w-100" *ngIf="appConfig.environment.login.no">
+            <ion-item lines="none" color="secondary" class="ion-no-padding w-100 h-100">
+                <ion-label class="medium ion-text-wrap text-center ion-text-uppercase font-weight-bold">{{ 'login-buttons.continue' | translate }}</ion-label>
+            </ion-item>
+        </ion-button>
+        <ion-button (click)="loginTest()" size="large" color="medium" shape="round" expand="block" class="w-100" *ngIf="appConfig.environment.login.test">
+            <ion-item lines="none" color="medium" class="ion-no-padding w-100 h-100">
+                <ion-label class="medium ion-text-wrap text-center ion-text-uppercase font-weight-bold">{{ 'login-buttons.test' | translate }}</ion-label>
+            </ion-item>
+        </ion-button>
+    </ion-col>
+
+</ion-content>

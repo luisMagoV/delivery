@@ -1,0 +1,46 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title>Servicios Disponibles</ion-title>
+        <ion-buttons slot="start">
+            <button (click)="dismiss()">
+                <ion-icon name="close"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <div class="bg_image h-100" style="background-image: url({{imageUrl}}); background-size: 100%;">
+        <div *ngIf="wlocation == true" class="w-100 text-center bg-transparent">
+            <br>
+            <div class="w-100 text-white">
+                <h1>¡Auch!</h1>
+            </div>
+            <p class="p_text">Aún no estamos disponibles en esta area.</p>
+            <br>
+            <p class="p_text">Estamos trabajando arduamente para expandirnos lo más pronto posible.</p>
+        </div>
+        <ion-list class="bg-transparent">
+            <ion-item (click)="chooseService(service)" *ngFor="let service of serviceItems" class="item_k ion-tappable">
+                <ion-avatar slot="start">
+                    <img [src]="service.icon_path" alt="">
+                </ion-avatar>
+                <ion-col>
+                    <ion-label><b>{{ service.name }}</b></ion-label>
+                    <ion-label>
+                        {{ service.description }}
+                    </ion-label>
+                    <ion-label>
+                        <ion-icon name="card-outline"></ion-icon>
+                        Desde {{service.min_time.price | currency }}
+                    </ion-label>
+                </ion-col>
+                <ion-col size="3" *ngIf="!service">
+                    <ion-label color="success" class="font-weight-bold text-right">
+                        <ion-icon name="star"></ion-icon>
+                        {{service.rate}}
+                    </ion-label>
+                </ion-col>
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-content>

@@ -1,0 +1,54 @@
+.price_r {
+  float: right;
+  font-size: 18px;
+  font-weight: 600;
+  position: absolute;
+  right: 10px;
+  top: 15px;
+}
+
+h2, h1 {
+  color: #515151 !important;
+}
+
+hr {
+  background-color: rgb(17, 211, 143) !important;
+}
+
+.items {
+  color: #6b6b6b;
+  padding: 1px 16px !important;
+}
+
+ion-list {
+  margin-bottom: 1px !important;
+}
+
+ion-avatar {
+  margin: auto;
+}
+
+.store-avatar {
+  height: 75px !important;
+  width: 75px !important;
+}
+
+.title-store {
+  color: black;
+  font-weight: bold;
+}
+
+ion-item {
+  --border-color: grey;
+}
+
+.resumen-orden {
+  font-size: small;
+  font-weight: bold;
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+.price_item {
+  text-align: right;
+}

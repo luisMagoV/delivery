@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Reclamos</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-list lines="none">
+    <ion-item class="ion-padding-top">
+      <ion-textarea [(ngModel)]="message" placeholder="Detallanos tu problema..." rows="6" type="text"></ion-textarea>
+    </ion-item>
+    <ion-item class="no-lines ion-padding">
+      <ion-button color="secondary" expand="block" class="w-100" (click)="send()" [disabled]="sent">
+        <ion-icon name="send"></ion-icon>
+        <label class="icon_text">Enviar reclamo</label>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

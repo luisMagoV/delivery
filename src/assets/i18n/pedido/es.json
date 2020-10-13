@@ -1,0 +1,24 @@
+{
+  "pedido": {
+    "back": "Atras",
+    "title": {
+      "title": "Mis pedidos <br />y servicios",
+      "subtitle": "Encuentra aqui tus pedidos y <br />anteriores y en curso."
+    },
+    "segment": {
+      "current": "En curso",
+      "old": "Anteriores"
+    },
+    "card": {
+      "date": "Fecha:",
+      "opinion": "Opinar"
+    }
+  },
+  "product-opinion": {
+    "title": "Opiniones",
+    "favorite": "Marcar como favorito",
+    "placeholder": "Escribe aqui tu opinión y/o experiencia que has tenido con este negocio. Tus comentarios serán revisados antes de ser publicados.",
+    "publish": "Publicar",
+    "number": "personas opinan sobre este negocio"
+  }
+}

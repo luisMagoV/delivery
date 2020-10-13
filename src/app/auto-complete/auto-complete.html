@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Nueva Dirección</ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-searchbar (ionCancel)="dismiss()" (change)="updateSearch()" (ionInput)="updateSearch()" [(ngModel)]="autocomplete.query"
+                   [showCancelButton]="true"
+                   placeholder="Buscar"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-toolbar>
+    <ion-button color="primary" expand="full" (click)="currentPosition()">Fijar posición actual</ion-button>
+  </ion-toolbar>
+
+  <ion-list>
+    <ion-item (click)="chooseItem(item)" *ngFor="let item of autocompleteItems" class="input-text ion-tappable">
+      <ion-icon slot="start" name="pin"></ion-icon>
+      {{ item.description }}
+    </ion-item>
+  </ion-list>
+</ion-content>

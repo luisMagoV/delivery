@@ -1,0 +1,7 @@
+{
+  "name": "superm",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

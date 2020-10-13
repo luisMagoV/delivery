@@ -1,0 +1,24 @@
+{
+  "pedido": {
+    "back": "Back",
+    "title": {
+      "title": "My orders <br />and services",
+      "subtitle": "Find here your orders <br />previous and in progress."
+    },
+    "segment": {
+      "current": "In progress",
+      "old": "Previous"
+    },
+    "card": {
+      "date": "Date:",
+      "opinion": "Opine"
+    }
+  },
+  "product-opinion": {
+    "title": "Opinions",
+    "favorite": "Mark as favorite",
+    "placeholder": "Write here your opinion and / or experience you have had with this business. Your comments will be reviewed before being published.",
+    "publish": "Publish",
+    "number": "people think about this business"
+  }
+}

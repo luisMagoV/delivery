@@ -1,0 +1,28 @@
+.amount {
+  color: red;
+  font-family: MarkPro;
+  font-weight: 600;
+}
+
+.amount_title {
+  /*font-family: MarkPro;*/
+  color: #080808;
+}
+
+.btn-pay {
+  padding: 12px;
+}
+
+ion-item {
+  ion-icon {
+    color: #6b6b6b;
+  }
+}
+
+.btn-pay {
+  float: right;
+  margin: 0;
+  position: absolute;
+  right: 15px;
+  top: 25px;
+}

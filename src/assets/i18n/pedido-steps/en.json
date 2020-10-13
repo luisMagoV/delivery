@@ -1,0 +1,114 @@
+{
+  "category": {
+    "header": {
+      "greeting": "Hello",
+      "profile": "Profile",
+      "coupons": "Coupons"
+    },
+    "searchbar": "What do you want to order?",
+    "list": {
+      "store": "Store",
+      "product": "Product"
+    },
+    "order": {
+      "status": "ORDER STATUS:",
+      "received": "Order Received",
+      "preparing": "Preparing",
+      "delivery": "On the way",
+      "delivered": "Delivered"
+    },
+    "favorites": "My favorites",
+    "suggested": "Suggested",
+    "new": "What's new in Togo",
+    "promotions": "Latest Promotions"
+  },
+  "checkout": {
+    "title": "Your Basket",
+    "backStore": "Return to the store",
+    "noProducts": "No Products Available",
+    "continue": "Continue",
+    "empty": "Empty basket"
+  },
+  "products": {
+    "modal": {
+      "information": "Information",
+      "schedule": "Schedule"
+    },
+    "header": {
+      "shipping": "Shipping",
+      "opinions": "Opinions",
+      "info": "Info"
+    },
+    "searchbar": "Search products or categories",
+    "category": "All",
+    "offers": "Super Deals",
+    "select": "Select",
+    "continue": "Continue"
+  },
+  "promo-store": {
+    "back": "Back",
+    "searchbar": "What do you want to order?",
+    "promos": "Promotions",
+    "categorie": "Category",
+    "open": "Open",
+    "close": "Close",
+    "shipping": "Shipping"
+  },
+  "preorden": {
+    "header": "Order details",
+    "service": "Type of service",
+    "shopAt": "Buy on:",
+    "details": "Order details",
+    "product": "Product:",
+    "quantity": "Quantity:",
+    "order": "Order summary",
+    "searchAt": "Search in:",
+    "deliveryAt": "Delivery in:",
+    "products": "Products",
+    "delivery": "Delivery",
+    "observations": "Observations",
+    "distance": "Distance",
+    "promo": "Active promo:",
+    "promos": "Promotions",
+    "select": "You can only select one option per order.",
+    "coupon": "Coupon",
+    "credit": "Credit",
+    "redeem": "Redeem",
+    "continue": "Continue"
+  },
+  "pay-method": {
+    "back": "Back",
+    "title": {
+      "title": "Payment method",
+      "subtitle": "Select the method you want to pay with."
+    },
+    "online": {
+      "title": "Pay Online",
+      "delete": "Delete",
+      "add": "Add new card"
+    },
+    "delivery": {
+      "title": "Upon delivery",
+      "cash": "Cash",
+      "pos": "Card Clave (POS)",
+      "mastercard": "Mastercard",
+      "visa": "Visa"
+    },
+    "continue": "Make order"
+  },
+  "product-detail": {
+    "description": "Description:",
+    "brand": "Brand:",
+    "category": "Category:",
+    "price": "Price:",
+    "back": "Back",
+    "add": "Add"
+  },
+  "product-opinion": {
+    "title": "Opinions",
+    "favorite": "Mark as favorite",
+    "placeholder": "Write here your opinion and / or experience you have had with this business. Your comments will be reviewed before being published.",
+    "publish": "Publish",
+    "number": "people think about this business"
+  }
+}

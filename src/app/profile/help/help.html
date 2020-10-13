@@ -1,0 +1,68 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons class="blue" (click)="appConfig.back()" >
+            <ion-icon size="small" name="arrow-back-outline"></ion-icon>
+            <ion-title size="small" class="ion-no-padding">
+                {{ 'help.back' | translate }}
+            </ion-title>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+  
+<ion-content>
+
+    <ion-item class="title">
+        {{ 'help.title.title' | translate }}
+    </ion-item>
+    <h6 class="ion-padding-start">
+        {{ 'help.title.subtitle' | translate }}
+    </h6>
+
+    <ion-card>
+
+        <ion-item class="elem" lines="none" (click)="navigate('pedido')">
+            <ion-icon class="ion-padding-start" name="basket-outline" color="--color"></ion-icon>
+            <ion-label class="ion-padding-start">{{ 'help.body.orders' | translate }}</ion-label>
+            <ion-icon style="padding-right: 32px;" name="arrow-forward" size="small" color="grey" slot="end"></ion-icon>
+        </ion-item>
+
+        <ion-item lines="full" class="ion-padding-horizontal grey-line" (click)="navigate('profile')">
+            <ion-icon name="person-circle-outline" color="--color"></ion-icon>
+            <ion-label class="ion-padding-start">{{ 'help.body.profile' | translate }}</ion-label>
+            <ion-icon name="arrow-forward" size="small" color="grey" slot="end"></ion-icon>
+        </ion-item>
+
+        <ion-item lines="full" class="ion-padding-horizontal black-line" (click)="navigate('promo')">
+            <ion-icon name="pricetag-outline" color="--color"></ion-icon>
+            <ion-label class="ion-padding-start">{{ 'help.body.promos' | translate }}</ion-label>
+            <ion-icon name="arrow-forward" size="small" color="grey" slot="end"></ion-icon>
+        </ion-item>
+
+        <!--
+        <ion-item lines="full" class="ion-padding-horizontal grey-line">
+            <ion-icon name="cart-outline" color="--color"></ion-icon>
+            <ion-label class="ion-padding-start">¿Que puedo pedir?</ion-label>
+            <ion-icon name="arrow-forward" size="small" color="grey" slot="end"></ion-icon>
+        </ion-item>
+        -->
+
+        <ion-item lines="full" class="ion-padding-horizontal black-line" (click)="navigate('select-pay')">
+            <ion-icon name="wallet-outline" color="--color"></ion-icon>
+            <ion-label class="ion-padding-start">{{ 'help.body.pay' | translate }}</ion-label>
+            <ion-icon name="arrow-forward" size="small" color="grey" slot="end"></ion-icon>
+        </ion-item>
+
+        <ion-item lines="full" class="ion-padding-horizontal grey-line" (click)="navigate('profile/faq')">
+            <ion-icon name="help-circle-outline" color="--color"></ion-icon>
+            <ion-label class="ion-padding-start">{{ 'help.body.faq' | translate }}</ion-label>
+            <ion-icon name="arrow-forward" size="small" color="grey" slot="end"></ion-icon>
+        </ion-item>
+
+        <ion-item lines="full" class="ion-padding-horizontal black-line" (click)="navigate('profile/contact')">
+            <ion-icon name="chatbubbles-outline" color="--color"></ion-icon>
+            <ion-label class="ion-padding-start">{{ 'help.body.contact' | translate }}</ion-label>
+        </ion-item>
+
+    </ion-card>
+
+</ion-content>

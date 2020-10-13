@@ -1,0 +1,152 @@
+.white_btn {
+  margin-top: 15px;
+  height: 30px;
+  width: 22%;
+  color: #515151;
+  padding: 0;
+  text-transform: lowercase;
+}
+
+.image_store {
+  width: 150px;
+}
+
+.price_item {
+  text-align: right;
+}
+
+.b_button {
+  width: 30%;
+}
+
+.float_rigth {
+  float: right;
+  text-align: right;
+}
+
+.type_product .service_title, .title_left {
+  text-align: left;
+}
+
+.list-header-md {
+  border-top: none;
+}
+
+.btn_k {
+  margin-bottom: 10px;
+}
+
+.list-header-md {
+  margin-bottom: 0;
+}
+
+.item-input .label-md {
+  color: #bbbbbb;
+}
+
+.text-input, .text-input-md {
+  color: #515151;
+}
+
+.button-md:hover:not(.disable-hover) {
+  background-color: #10d58e;
+}
+
+.item-md {
+  color: #515151;
+  font-family: MarkPro;
+}
+
+.list_cards ion-item {
+  padding-left: 0;
+}
+
+.item_k h2 {
+  margin-top: 0 !important;
+}
+
+.icons_product {
+  position: absolute;
+  right: 0;
+  margin-top: -30px;
+}
+
+.icon-only {
+  background-color: transparent;
+  font-size: 20px;
+  color: #0871a5;
+}
+
+.info-preorden {
+  background-color: #ececec;
+  width: 100%;
+  padding: 0;
+  position: absolute;
+  margin: 0;
+  left: 0;
+  right: 0;
+}
+
+.ca_text {
+  text-transform: capitalize;
+}
+
+.promos {
+  padding-top: 32px;
+
+  ion-title {
+    color: black;
+    font-size: larger;
+    font-weight: bolder;
+    padding-top: 16px;
+    padding-bottom: 0;
+  }
+
+  ion-label {
+    color: black;
+    font-size: small;
+    padding: 0 20px;
+  }
+
+  ion-item {
+    ion-input {
+      color: black;
+      padding-left: 16px !important;
+      border: 1px solid black;
+      border-radius: 0.5rem 0 0 0.5rem;
+      --inner-padding-start: 16px;
+      .add_coupon {
+        height: 32px;
+        color: white;
+        --background: red;
+        --border-radius: 0.75rem;
+        font-size: 10px;
+        text-transform: capitalize;
+      }
+    }
+
+    ion-button {
+      height: 46px;
+      --border-radius: 0 0.5rem 0.5rem 0;
+      --background: green;
+    }
+  }
+}
+
+ion-footer {
+  text-align: center;
+  background-color: white;
+
+  ion-button {
+    --border-radius: 2rem;
+    --background: #2b2254;
+    font-size: 20px;
+    width: 273.19px;
+  }
+}
+
+.continue {
+  height: 56px !important;
+  font-size: larger;
+  text-transform: capitalize;
+}

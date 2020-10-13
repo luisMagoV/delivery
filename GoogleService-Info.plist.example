@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>999999999999-AAAA9A9999999A9A99A9A9A99A9A99AA9A9A9A.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.999999999999-AAAA9A9999999A9A99A9A9A99A9A99AA9A9A9A</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD9cYb18hMTPWF07j9gPsVGJjuR0HMQVBE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>99999999999999</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.app.ionic</string>
+	<key>PROJECT_ID</key>
+	<string>ionic.app</string>
+	<key>STORAGE_BUCKET</key>
+	<string>ionic.app.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:999999999999:android:999999A9999AA9AA9A9A9A9</string>
+	<key>DATABASE_URL</key>
+	<string>https://ionic.app.firebaseio.com</string>
+</dict>
+</plist>

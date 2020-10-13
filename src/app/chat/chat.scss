@@ -1,0 +1,98 @@
+.input-cover {
+  position: static !important;
+}
+
+ion-fab {
+  bottom: 10px !important;
+}
+
+textarea {
+  width: 82% !important;
+  border-bottom: 1px solid #096ea6 !important;
+}
+
+[inline] {
+  display: inline-block !important;
+}
+
+.text-message {
+  color: #262626;
+}
+
+.autor-message {
+  color: gray;
+  font-size: 12px;
+}
+
+.you-text-message {
+  color: #262626;
+}
+
+.you-autor-message {
+  color: black;
+  font-size: 12px;
+}
+
+.me-message {
+  margin-left: 16px;
+  margin-bottom: 7px;
+  margin-right: 10px;
+
+  .item {
+    border-radius: 7.5px;
+    box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
+    background-color: #dcf8c6;
+  }
+}
+
+.you-message {
+  margin-right: 16px;
+  margin-bottom: 7px;
+  margin-left: 10px;
+
+  .item {
+    border-radius: 7.5px;
+    box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
+    background-color: #f1f1f1;
+  }
+}
+
+.message-bar {
+  position: absolute;
+  bottom: 0;
+  height: 44px;
+  padding: 0;
+
+  .message-input {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 34px;
+    line-height: 34px;
+    background: white;
+    padding: 0 42px;
+    margin: 5px 0;
+    border: none;
+  }
+
+  .left-button {
+    position: absolute;
+    left: 0;
+    top: 1px;
+    margin: 0;
+    width: 30px;
+  }
+
+  .right-button {
+    position: absolute;
+    right: 0;
+    top: 1px;
+    margin: 0;
+    width: 30px;
+  }
+}
+
+ion-list {
+  margin-top: 10px !important;
+}

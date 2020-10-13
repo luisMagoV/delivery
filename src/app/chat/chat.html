@@ -1,0 +1,52 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-icon size="large" (click)="appConfig.back()" name="arrow-back-outline"></ion-icon>
+        </ion-buttons>
+        <ion-title>{{domiciliary.name}} {{domiciliary.lastName}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content id="content">
+    <ion-grid>
+        <ion-row *ngFor="let msg of data.messages">
+            <ion-col size="2" *ngIf="msg.user.uuid === appConfig.user.uuid">
+                <ion-label></ion-label>
+            </ion-col>
+            <ion-col size="10" class="text-right" *ngIf="msg.user.uuid === appConfig.user.uuid">
+                <ion-item lines="none" color="tertiary" class="rounded text-left">
+                    <ion-label class="ion-text-wrap">{{msg.message}}</ion-label>
+                </ion-item>
+                <ion-label color="medium">Tú</ion-label>
+            </ion-col>
+
+            <ion-col size="10" *ngIf="msg.user.uuid !== appConfig.user.uuid">
+                <ion-item lines="none" color="primary" class="rounded">
+                    <ion-label class="ion-text-wrap">{{msg.message}}</ion-label>
+                </ion-item>
+                <ion-label color="medium">{{msg.user.name}} {{msg.user.lastName}}</ion-label>
+            </ion-col>
+            <ion-col size="2" *ngIf="msg.user.uuid !== appConfig.user.uuid">
+                <ion-label></ion-label>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="selectFile()">
+                <ion-icon name="attach"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <form>
+            <ion-input #chat_input (ionFocus)="updateScroll()" (keyup.enter)="send()" [(ngModel)]="text" name="message"
+                       placeholder="Escribe algo...">
+            </ion-input>
+        </form>
+        <ion-buttons slot="end" (click)="send()">
+            <ion-icon name="send"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-footer>

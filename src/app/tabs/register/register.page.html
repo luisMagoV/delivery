@@ -1,0 +1,71 @@
+<form #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" novalidate>
+  <ion-item>
+    <ion-label position="floating">Nombre</ion-label>
+    <ion-input #name="ngModel" [(ngModel)]="model.name" minlength="2" name="name" required
+               type="text"></ion-input>
+  </ion-item>
+  <ion-label *ngIf="name?.errors && name.touched" color="danger">{{ appConfig.getErrorMessage(name) }}</ion-label>
+
+  <ion-item>
+    <ion-label position="floating">Apellido</ion-label>
+    <ion-input #lastName="ngModel" [(ngModel)]="model.lastName" minlength="2" name="lastName" required
+               type="text"></ion-input>
+  </ion-item>
+  <ion-label *ngIf="lastName?.errors && lastName.touched" color="danger">{{ appConfig.getErrorMessage(lastName) }}</ion-label>
+
+  <ion-item>
+    <ion-label position="floating">Telefono</ion-label>
+    <ion-input #phone="ngModel" [(ngModel)]="model.phone" minlength="2" name="phone" required
+               type="tel"></ion-input>
+  </ion-item>
+  <ion-label *ngIf="phone?.errors && phone.touched" color="danger">{{ appConfig.getErrorMessage(phone) }}</ion-label>
+
+  <ion-item>
+    <ion-label position="floating">Correo Electronico</ion-label>
+    <ion-input #email="ngModel" [(ngModel)]="model.email" minlength="6" name="email" required
+               type="email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Código Referido</ion-label>
+    <!--<ion-input #referredBy="ngModel" [(ngModel)]="model.referredBy" name="referredBy" type="text">
+    </ion-input>-->
+    <ion-input name="referredBy" type="text">
+    </ion-input>
+  </ion-item>
+  <ion-label *ngIf="email?.errors && email.touched" color="danger">{{ appConfig.getErrorMessage(email) }}</ion-label>
+
+  <ion-item>
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-input #password="ngModel" [(ngModel)]="model.password" minlength="6" name="password" required
+               type="{{type}}"></ion-input>
+    <ion-button color="light" (click)="showPassword()" class="btn_show h-100" slot="end" type="button">
+      <ion-icon *ngIf="!showPass" name="eye-off-outline"></ion-icon>
+      <ion-icon *ngIf="showPass" name="eye-outline"></ion-icon>
+    </ion-button>
+  </ion-item>
+  <ion-label *ngIf="password?.errors && password.touched" color="danger">{{ appConfig.getErrorMessage(password) }}</ion-label>
+
+  <ion-item>
+    <ion-label position="floating">Repita su Contraseña</ion-label>
+    <ion-input #repassword="ngModel" [(ngModel)]="model.repassword" minlength="6" name="repassword" required
+               type="{{type}}"></ion-input>
+    <ion-button color="light" (click)="showPassword()" class="btn_show h-100" slot="end" type="button">
+      <ion-icon *ngIf="!showPass" name="eye-off-outline"></ion-icon>
+      <ion-icon *ngIf="showPass" name="eye-outline"></ion-icon>
+    </ion-button>
+  </ion-item>
+  <ion-label *ngIf="repassword?.errors && repassword.touched" color="danger">{{ appConfig.getErrorMessage(repassword) }}</ion-label>
+  <ion-label color="danger">{{errorPasswords}}</ion-label>
+
+  <ion-item>
+    <ion-button expand="block" slot="end" [disabled]="!f.form.valid" type="submit">
+      <ion-label>Registrar</ion-label>
+    </ion-button>
+  </ion-item>
+</form>
+
+<ion-item lines="none">
+  <ion-label class="w-100 text-left text-gray" (click)="formLogin()">¿Tienes cuenta?</ion-label>
+</ion-item>
+

@@ -1,0 +1,79 @@
+# Specifies intentionally untracked files to ignore when using Git
+# http://git-scm.com/docs/gitignore
+
+# compiled output
+/dist
+/tmp
+/out-tsc
+/platforms
+/plugins
+/www
+
+# dependencies
+/node_modules
+
+# IDEs and editors
+/.idea
+/.ionic
+/.sass-cache
+/.sourcemaps
+/.versions
+/.vscode
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+*.sublime-project
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# misc
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+/docs
+
+# e2e
+/e2e/*.js
+/e2e/*.map
+
+# logs
+*.log
+log.txt
+npm-debug.log*
+
+# Keys
+*.keystore
+*.crt
+*.cert
+*.jks
+google-services.json
+GoogleService-Info.plist
+build-config*
+
+# System Files
+.DS_Store
+Thumbs.db
+UserInterfaceState.xcuserstate
+$RECYCLE.BIN/
+*~
+*.sw[mnpcod]
+.tmp
+*.tmp
+*.tmp.*
+testers.txt
+
+android
+ios
+resources/android
+resources/ios
+capacitor.config.json

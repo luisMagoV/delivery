@@ -1,0 +1,58 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons class="text-blue" (click)="back()">
+            <ion-icon size="small" name="arrow-back-outline"></ion-icon>
+            <ion-title size="small" class="ion-no-padding">
+                Atras
+            </ion-title>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+    <app-register *ngIf="appConfig.showFormRegister"></app-register>
+    <app-recovery *ngIf="appConfig.showFormRecovery"></app-recovery>
+
+    <div *ngIf="!appConfig.showFormRecovery && !appConfig.showFormRegister">
+        <form #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" novalidate>
+            <ion-item *ngIf="email">
+                <ion-label position="floating">Correo Electronico</ion-label>
+                <ion-input #email="ngModel" [(ngModel)]="model.email" minlength="6" name="email"
+                           required type="email"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">Teléfono</ion-label>
+                <ion-input #phone="ngModel" [(ngModel)]="model.phone" minlength="6" name="phone"
+                           required type="text"></ion-input>
+            </ion-item>
+            <ion-label *ngIf="phone?.errors && phone.touched" color="danger">{{ appConfig.getErrorMessage(phone) }}</ion-label>
+
+            <ion-item>
+                <ion-label position="floating">Contraseña</ion-label>
+                <ion-input #password="ngModel" [(ngModel)]="model.password" minlength="6" name="password" required
+                           type="{{type}}"></ion-input>
+                <ion-button color="light" (click)="showPassword()" class="btn_show h-100" slot="end" type="button">
+                    <ion-icon *ngIf="!showPass" name="eye-off-outline"></ion-icon>
+                    <ion-icon *ngIf="showPass" name="eye-outline"></ion-icon>
+                </ion-button>
+            </ion-item>
+            <ion-label *ngIf="password?.errors && password.touched" color="danger">{{ appConfig.getErrorMessage(password) }}</ion-label>
+
+            <ion-item>
+                <ion-button expand="block" slot="end" [disabled]="!f.form.valid" type="submit">
+                    <ion-label>Iniciar Sesión</ion-label>
+                </ion-button>
+            </ion-item>
+        </form>
+
+        <ion-item lines="none">
+            <ion-label (click)="formRecovery()" class="w-100 text-right text-gray">Olvidé Mi Contraseña</ion-label>
+        </ion-item>
+
+        <ion-item lines="none">
+            <ion-label (click)="formRegister()" class="w-100 text-left text-gray">¿No tienes cuenta? <span color="primary" class="text-blue">REGISTRATE</span></ion-label>
+        </ion-item>
+    </div>
+</ion-content>

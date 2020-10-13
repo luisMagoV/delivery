@@ -1,0 +1,100 @@
+ion-toolbar, ion-content {
+  --background: #f8f8f8;
+}
+
+.blue {
+  color: #1673a5 !important;
+}
+
+ion-avatar {
+  --border-radius: none;
+
+  img {
+    width: 24px;
+    height: 50px;
+  }
+}
+
+.valid-coupon {
+  --background: white;
+  border-radius: 1rem !important;
+  box-shadow: none;
+  border: 1px solid lightgray !important;
+
+  ion-item {
+    --background: white;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    --border-bottom-color: lightgrey;
+
+
+    ion-button {
+      --border-radius: 1rem;
+      text-transform: capitalize;
+    }
+  }
+}
+
+
+ion-item {
+  --background: #f8f8f8;
+
+  ion-text {
+    h2 {
+      color: black;
+      font-weight: bolder;
+    }
+  }
+
+  ion-segment {
+    --background: white;
+    border-radius: 1rem !important;
+
+    ion-segment-button {
+      padding: 6px;
+      --border-radius: 2rem;
+      --background: white;
+      --indicator-color: #2b2254;
+      --color-checked: white;
+      --color: #2b2254;
+    }
+  }
+
+  ion-card {
+    border-radius: 1rem;
+    box-shadow: none;
+    border: 1px solid lightgray !important;
+
+    ion-icon {
+      zoom: 2.5;
+      align-self: center !important;
+    }
+
+    .valid {
+      fill: green;
+    }
+
+    .invalid {
+      fill: red;
+    }
+
+    ion-label {
+      font-size: x-small;
+    }
+
+    .code, .value {
+      color: black;
+      font-size: medium;
+    }
+
+    .code {
+      font-weight: bold;
+    }
+
+  }
+}
+
+.service-title {
+  color: black;
+  font-weight: bold;
+}

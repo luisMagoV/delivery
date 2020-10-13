@@ -1,0 +1,53 @@
+{
+  "coupons": {
+    "back": "Back",
+    "title": "Coupons",
+    "placeholder": "Enter your coupon",
+    "validate": "Validate",
+    "segment": {
+      "available": "Available",
+      "overdue": "Overdue"
+    },
+    "card": {
+      "offer": "OFFER: Refer",
+      "type": "TYPE: Discount",
+      "code": "YOUR CODE",
+      "value": "VALUE",
+      "activation": "ACTIVATION DATE",
+      "overdue": "EXPIRATION DATE",
+      "use": "DATE OF USE"
+    }
+  },
+  "tabs": {
+    "register": {
+      "togo": "Create your account in Togo",
+      "cellphone": " With your cell phone number ",
+      "other": " Other registration methods "
+    },
+    "account": "Do you already have an account?",
+    "tab": {
+      "store": "Stores",
+      "promo": "Promos",
+      "order": "Order",
+      "help": "Help",
+      "profile": "Profile"
+    }
+  },
+  "login-buttons": {
+    "back": "Back",
+    "other": "Other registration methods",
+    "apple": "Login with Apple",
+    "google": "Login with Google",
+    "facebook": "Login with Facebook",
+    "continue": "Continue without Registration",
+    "test": "Enter Test"
+  },
+  "status-order": {
+    "status": "Status Order",
+    "service": "What did you think of the service?",
+    "order": "Order summary",
+    "products": "Products",
+    "delivery": "Delivery",
+    "cancel": "Cancel Order"
+  }
+}

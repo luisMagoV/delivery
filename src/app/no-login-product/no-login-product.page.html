@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-icon size="large" (click)="back()" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title>Productos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <ion-toolbar color="dark">
+      <ion-title class="title-center" size="small">Agregue los productos a su carrito</ion-title>
+    </ion-toolbar>
+    <ion-card *ngFor="let product of products; let myIdx = index; let first = first; let last = last" [class.last-item]="last" class="">
+      <ion-card-header>
+        <img [src]="product.images[0].url" *ngIf="product.url != ''" class="img_product">
+        <ion-card-title class="title_product">{{product.name}}</ion-card-title>
+      </ion-card-header>
+      <ion-footer>
+        <ion-row>
+          <ion-col center text-center>
+            <ion-button (click)="showDetail(product)" *ngIf="false" fill="clear" icon-only>
+              <ion-icon name="open"></ion-icon>
+              <div > Ver Detalles</div>
+            </ion-button>
+          </ion-col>
+          <ion-col center text-center>
+            <ion-button fill="clear">
+              <div class="price">$ {{product.price}}</div>
+            </ion-button>
+          </ion-col>
+          <ion-col class="text-center">
+              <ion-icon (click)="less(products[myIdx].quantity, myIdx)" class="icon_big float-left icon-product" name="remove-circle-outline"></ion-icon>
+              <div class="float-left icon_big font-number ion-no-margin">{{products[myIdx].quantity}}</div>
+              <ion-icon (click)="more(products[myIdx].quantity, myIdx)" class="icon_big float-right icon-product" name="add-circle-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-footer>
+      </ion-card>
+    </div>
+</ion-content>
+
+<ion-footer>
+  <ion-button  (click)="formRegister()"  size="large" expand="block" class="btn-success" *ngIf="totalPrice > 0">Comprar ahora</ion-button>
+</ion-footer>

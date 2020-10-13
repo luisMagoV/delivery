@@ -1,0 +1,8 @@
+{
+  "select-address": {
+    "title": "Select your delivery <br> address",
+    "delete": "Delete",
+    "select": "Select",
+    "add": "Add new address"
+  }
+}

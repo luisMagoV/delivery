@@ -1,0 +1,97 @@
+{
+  "profile": {
+    "title": {
+      "greeting": "Hola",
+      "points": "Puntos Acumulados:"
+    },
+    "subtitle": {
+      "profile": "Profile<br/>Data",
+      "help": "Centro<br/>de Ayuda",
+      "orders": "Historial<br/>de Pedidos",
+      "pay": "Metodos<br/>de Pago"
+    },
+    "promosList": {
+      "title": "Promos y Créditos",
+      "credits": "Mis Créditos",
+      "points": "Mis Puntos",
+      "invite": "Invita a un amigo y gana $"
+    },
+    "accountList": {
+      "title": "Mi Cuenta",
+      "data": "Mis Datos",
+      "favorites": "Mis Favoritos",
+      "orders": "Mis Pedidos",
+      "coupons": "Mis Cupones"
+    },
+    "settingsList": {
+      "title": "Ajustes",
+      "language": "Idioma",
+      "address": "Direcciones",
+      "payMethods": "Metodos de pago"
+    },
+    "informationList": {
+      "title": "Información",
+      "terms": "Terminos y Condiciones",
+      "privacy": "Privacidad de mis datos",
+      "register": "Registrar mi negocio",
+      "join": "Unase a nuestro equipo",
+      "session": "Cerrar Sesion"
+    }
+  },
+  "help": {
+    "back": "Atras",
+    "title": {
+      "title": "Centro de ayuda",
+      "subtitle": "¿Tienes alguna duda?"
+    },
+    "body": {
+      "orders": "Ver todas mis órdenes",
+      "profile": "Mi Cuenta",
+      "promos": "Promociones",
+      "pay": "Pagos",
+      "faq": "Dudas frecuentes",
+      "contact": "Contactenos"
+    }
+  },
+  "favorites": {
+    "back": "Atras",
+    "title": "Mis favoritos",
+    "store": "Tiendas",
+    "products": "Productos"
+  },
+  "faq": {
+    "title": "Dudas frecuentes"
+  },
+  "edit": {
+    "back": "Atras",
+    "title": {
+      "title": "Mi Perfil",
+      "subtitle": "Actualiza tus datos personales",
+      "photo": "Cambiar foto"
+    },
+    "form": {
+      "name": "Nombres",
+      "lastName": "Apellidos",
+      "cellphone": "Celular",
+      "dateOfBirth": "Fecha de nacimiento",
+      "sex": {
+        "title": "Sexo",
+        "woman": "Mujer",
+        "men": "Hombre"
+      },
+      "card": {
+        "title": "Tarjeta de Crédito / Debito",
+        "add": "Agregar otra tarjeta de crédito"
+      },
+      "buttons": {
+        "cancel": "Cancelar",
+        "save": "Guardar"
+      }
+    }
+  },
+  "contact": {
+    "title": "Contáctanos",
+    "messagePlaceholder": "Escribe un mensaje",
+    "send": "Enviar mensaje"
+  }
+}

@@ -1,0 +1,143 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+
+        <ion-buttons class="ion-padding-end" slot="start" (click)="back()">
+            <ion-icon name="arrow-back-outline" size="small" class="blue"></ion-icon>
+            <ion-label size="small" class="blue">{{ 'promo-store.back' | translate }}</ion-label>
+        </ion-buttons>
+
+        <ion-title size="small" class="blue">
+            <span *ngIf="!appConfig.hasFavorite">Dirección Actual</span>
+        </ion-title>
+        <ion-buttons *ngIf="!appConfig.hasFavorite" slot="secondary">
+            <ion-button (click)="loadAddress()">
+                <ion-icon name="close-circle-outline" size="large" class="blue"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+        <ion-buttons *ngIf="appConfig.hasFavorite" slot="secondary">
+            <ion-button (click)="showAddressSelector()"></ion-button>
+        </ion-buttons>
+        <ion-title (click)="showAddressSelector()" size="small" class="blue">
+            <ion-label class="ion-text-wrap">{{ directionName }}</ion-label>
+            <ion-icon name="caret-down-outline"></ion-icon>
+        </ion-title>
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <page-select-address *ngIf="!appConfig.hasFavorite" auto="true"></page-select-address>
+
+    <div *ngIf="appConfig.hasFavorite">
+        <ion-searchbar class="ion-no-border ion-padding" placeholder="{{ 'promo-store.searchbar' | translate }}"></ion-searchbar>
+
+        <ion-item class="ion-no-padding" lines="none">
+            <ion-title class="ion-padding-start " size="large" slot="start">{{ 'promo-store.promos' | translate }}</ion-title>
+            <ion-icon name="arrow-forward" size="small" color="grey" slot="end"></ion-icon>
+        </ion-item>
+
+        <ion-slides [options]="slidesOptions">
+            <ion-slide *ngFor="let ban of bannersCategory">
+                <ion-card class="slide-banners">
+                    <img alt="" [src]="ban.imageUrl">
+                </ion-card>
+            </ion-slide>
+        </ion-slides>
+
+        <ion-col *ngIf="category.name == 'Restaurantes'" >
+            <ion-item class="ion-no-padding" lines="none">
+                <ion-title class="ion-padding-start " size="large" slot="start">{{ 'promo-store.categorie' | translate }}</ion-title>
+            </ion-item>
+
+        <div class="ion-justify-content-between slide_container stores_slide">
+            <div (click)="loadStoresSubCat(ban.uuid)" class="slide text-left ion-no-margin slideStore" *ngFor="let ban of bannersSubCategory">
+                <ion-card class="grid-card">
+                    <img alt="" [src]="ban.imageUrl">
+                </ion-card>
+                <ion-label class="grid-label-stores name">{{ban.name}}</ion-label>
+            </div>
+        </div>
+
+            <!--<ion-slides [options]="slidesOptions2">
+                <ion-slide *ngFor="let ban of bannersSubCategory" (click)="loadStoresSubCat(ban.uuid)">
+                    <ion-card class="grid-card">
+                        <img [src]="ban.imageUrl">
+                    </ion-card>
+                </ion-slide>
+            </ion-slides>-->
+        </ion-col>
+
+        <ion-col>
+            <ion-title>
+                {{ category.name }}
+            </ion-title>
+            <ion-item>
+                <ion-label class="ion-text-wrap ion-padding-start">
+                    {{ category.description }}
+                </ion-label>
+            </ion-item>
+        </ion-col>
+
+        <!-- CARGAR ESTO PARA TODO MENOS RESTAURANTS  -->
+        <ion-item *ngIf="storesCat.length > 0 && category.name !== 'Restaurantes'">
+            <div class="ion-justify-content-between slide_container stores_slide">
+                <div (click)="selectStore(store)" class="slide text-center slideStore" *ngFor="let store of storesCat">
+                    <img alt="" [src]="store.logo">
+                    <ion-label class="ion-text-wrap">{{store.name}}</ion-label>
+                </div>
+            </div>
+        </ion-item>
+        <!-- Carga restaurantes -->
+        <div *ngIf="category.name == 'Restaurantes'">
+            <ion-grid  *ngIf="storesSubCat.length > 0">
+                <ion-row>
+                    <ion-col (click)="selectStore(store)" size="6" *ngFor="let store of storesSubCat">
+                        <ion-card class="restaurant-card">
+                            <ion-label class="store-status open" *ngIf="store.state == 'opened'">{{ 'promo-store.open' | translate }}</ion-label>
+                            <ion-label class="store-status closed" *ngIf="store.state !== 'opened'">{{ 'promo-store.close' | translate }}</ion-label>
+                            <ion-img alt="" [src]="store.logo"></ion-img>
+                        </ion-card>
+                        <ion-label class="ion-text-wrap store-name">{{ store.name }}</ion-label>
+                        <div>
+                        <span class="highlight">
+                            <ion-icon name="heart" class="icon-class"
+                                      [ngStyle]="{'fill': store.favorite === true ? 'red' : 'grey' }">
+                            </ion-icon>
+                            <!--<ion-label class="icon-class">{{ 'promo-store.shipping' | translate }} {{store.price | currency}} . 3km </ion-label>-->
+                            <ion-icon class="rating-icon icon-class" name="star"></ion-icon>
+                            <ion-label class="icon-class">4.8</ion-label>
+                        </span>
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+            <ion-grid  *ngIf="storesCat.length > 0 && storesSubCat.length === 0">
+                <ion-row>
+                    <ion-col (click)="selectStore(store)" size="6" *ngFor="let store of storesCat">
+                        <ion-card class="restaurant-card">
+                            <ion-label class="store-status open" *ngIf="store.state == 'opened'">{{ 'promo-store.open' | translate }}</ion-label>
+                            <ion-label class="store-status closed" *ngIf="store.state !== 'opened'">{{ 'promo-store.close' | translate }}</ion-label>
+                            <ion-img alt="" [src]="store.logo"></ion-img>
+                        </ion-card>
+                        <ion-label class="ion-text-wrap store-name">{{ store.name }}</ion-label>
+                        <div>
+                        <span class="highlight">
+                            <ion-icon name="heart" class="icon-class"
+                                      [ngStyle]="{'fill': store.favorite === true ? 'red' : 'grey' }">
+                            </ion-icon>
+                            <ion-label class="icon-class">{{ 'promo-store.shipping' | translate }} {{store.price | currency}}</ion-label>
+                            <ion-icon class="rating-icon icon-class" name="star"></ion-icon>
+                            <ion-label class="icon-class">4.8</ion-label>
+                        </span>
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </div>
+
+
+    </div>
+
+</ion-content>

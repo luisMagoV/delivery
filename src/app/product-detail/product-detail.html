@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      {{ product.name }}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="close-outline" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-button class="heart" mode='ios' (click)="changeFavorite()">
+      <ion-icon name="heart" [color]=" product.favorite ? 'danger' : 'medium'"></ion-icon>
+    </ion-button>
+
+    <ion-slides [options]="options" [pager]="true" *ngIf="product.images.length>=1">
+      <ion-slide *ngFor="let imagen of product.images">
+        <img [src]="imagen.url" alt=""/>
+      </ion-slide>
+    </ion-slides>
+    <img [src]="'../../assets/img/no-product-image.png'" *ngIf="product.images.length<=0">
+    
+    <ion-card-content>
+      <p><b>{{ 'product-detail.description' | translate }}</b></p>
+      <p>{{ product.description }}</p>
+      <!--<p *ngIf="product.itbms > 0">ITBMS: {{product.itbms | currency}}</p>-->
+      <p *ngIf="product.brand">{{ 'product-detail.brand' | translate }} {{product.brand}}</p>
+      <p *ngIf="product.category.name">{{ 'product-detail.category' | translate }} {{product.category.name}}</p>
+
+      <div *ngFor="let additional of product.productsAdditionals">
+        <p><b>{{ additional.type | uppercase }}</b></p>
+        <ion-select placeholder="Seleccionar" interface="popover" (ionChange)="addAdditional($event.detail.value)">
+          <ion-select-option [value]="null">Seleccionar</ion-select-option>
+          <ion-select-option *ngFor="let product of additional.products" [value]="product">{{ product.name }} {{ product.price | currency }}</ion-select-option>
+        </ion-select>
+      </div>
+
+      <p><b>Observaciones</b></p>
+      <ion-textarea clearOnEdit="true" placeholder="¿Desea hacer alguna observacion sobre su pedido?"></ion-textarea>
+
+    </ion-card-content>
+
+    <ion-item class="ion-no-padding" lines="none">
+      <div slot="end">
+        <ion-label color="medium" class="ion-text-right">ITBMS: {{product.itbms | currency}}</ion-label>
+        <ion-label color="medium" class="ion-text-right">{{ 'product-detail.price' | translate }} {{product.price | currency}}</ion-label>
+      </div>
+    </ion-item>
+
+    <ion-item class="ion-no-padding" lines="none">
+
+      <ion-label class="display-contents" color="primary" (click)="dismiss()">
+        <ion-icon size="large" name="arrow-back-outline"></ion-icon> {{ 'product-detail.back' | translate }}
+      </ion-label>
+
+      <!--<ion-button slot="end" shape="round" expand="full" (click)="dismiss(true)" *ngIf="add">-->
+      <ion-button slot="end" shape="round" expand="full" (click)="addToCart()">
+        <ion-label>{{ 'product-detail.add' | translate }}</ion-label>
+      </ion-button>
+
+    </ion-item>
+
+  </ion-card>
+</ion-content>

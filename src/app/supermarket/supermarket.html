@@ -1,0 +1,99 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-icon size="large" (click)="appConfig.back()" name="arrow-back-outline"></ion-icon>
+        </ion-buttons>
+        <ion-title>{{ service.name }}</ion-title>
+        <ion-buttons slot="end">
+            <button (click)="processOrder()">
+                Continuar
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+    <div *ngIf="service.name == 'Mercado'">
+        <div *ngIf="appConfig.environment.configStore.supermercados.length > 0">
+            <ion-item>
+                <ion-label position="floating">Selecciona un super</ion-label>
+                <ion-select [(ngModel)]="super" okText="Okay" cancelText="Dismiss">
+                    <ion-select-option *ngFor="let super of appConfig.environment.configStore.supermercados"
+                                       value="{{super}}">{{super}}</ion-select-option>
+                </ion-select>
+            </ion-item>
+        </div>
+        <div *ngIf="this.super !==  '' || appConfig.environment.configStore.supermercados.length < 1">
+            <ion-list>
+                <ion-list-header *ngIf="appConfig.environment.configStore.supermercados.length > 0">
+                    <ion-label class="font-weight-bold">Pida aqui</ion-label>
+                </ion-list-header>
+                <ion-item>
+                    <ion-label position="floating">¿Qué te llevamos?</ion-label>
+                    <ion-input #inputP [(ngModel)]="product" type="text"></ion-input>
+                </ion-item>
+
+                <ion-item>
+                    <ion-button [color]="kcolor" shape="round" (click)="selectK()">
+                        <label>Kilo</label>
+                    </ion-button>
+                    <ion-button [color]="ucolor" shape="round" (click)="selectU()">
+                        <label>Unidades</label>
+                    </ion-button>
+                    <ion-item class="ion-no-padding ion-text-right">
+                        <ion-label position="floating">Cantidad</ion-label>
+                        <ion-input [(ngModel)]="quanty" type="tel" value="1"></ion-input>
+                    </ion-item>
+                </ion-item>
+                <div *ngIf="appConfig.environment.configStore.categorias.length > 0 && appConfig.environment.configStore.supermercados.length > 0">
+                    <ion-item>
+                        <ion-label position="floating">Selecciona una categoria</ion-label>
+                        <ion-select [(ngModel)]="category" okText="Okay" cancelText="Dismiss">
+                            <ion-select-option *ngFor="let categoria of appConfig.environment.configStore.categorias"
+                                               value="{{categoria}}">{{categoria}}</ion-select-option>
+                        </ion-select>
+                    </ion-item>
+                    <ion-item>
+                        <ion-item class="ion-no-padding">
+                            <ion-label position="floating">Marca</ion-label>
+                            <ion-input [(ngModel)]="brand" type="text"></ion-input>
+                        </ion-item>
+                        <ion-item class="ion-no-padding">
+                            <ion-label position="floating">Observación</ion-label>
+                            <ion-input [(ngModel)]="obs" type="text"></ion-input>
+                        </ion-item>
+                    </ion-item>
+                </div>
+                <ion-fab #fab (click)="addMarket(product, quanty, category, brand, obs, super)" horizontal="end"
+                         vertical="top">
+                    <ion-fab-button class="add_product">
+                        <ion-icon name="add-outline"></ion-icon>
+                    </ion-fab-button>
+                </ion-fab>
+            </ion-list>
+        </div>
+        <ion-list>
+            <ion-list-header *ngIf="productItems.length > 0">
+                <ion-label class="font-weight-bold">Tus productos</ion-label>
+            </ion-list-header>
+            <ion-item *ngFor="let product of productItems; let i = index" class="item_k ion-tappable">
+                <ion-col slot="start" size="8">
+                    <ion-label class="font-weight-bold ion-text-wrap">{{ product.name }}</ion-label>
+                    <ion-label class="ion-text-wrap">{{ product.quanty }} {{ product.unitType }}</ion-label>
+                    <ion-label class="ion-text-wrap"> {{ product.category}} </ion-label>
+                    <ion-label class="ion-text-wrap">{{ product.brand}}     {{ product.obs }} </ion-label>
+                </ion-col>
+                <ion-col slot="start" size="2" class="ion-text-right">
+                    <!--<ion-button (click)="uptProduct(i, product)" shape="round" fill="clear">
+                        <ion-icon name="create-outline"></ion-icon>
+                    </ion-button>-->
+                    <ion-button (click)="delProduct(i)" shape="round" fill="clear">
+                        <ion-icon name="close-circle-outline"></ion-icon>
+                    </ion-button>
+                </ion-col>
+            </ion-item>
+        </ion-list>
+
+    </div>
+</ion-content>

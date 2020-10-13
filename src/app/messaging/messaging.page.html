@@ -1,0 +1,120 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+
+      <ion-buttons class="ion-padding-end ion-no-margin" slot="start" (click)="back()">
+          <ion-icon name="arrow-back-outline" size="small" class="blue"></ion-icon>
+          <ion-label size="small" class="blue">Atras</ion-label>
+      </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div>
+          <ion-label class="headerTitle">Mensajería</ion-label>
+        </div>
+        <div>
+          <ion-label class="subtext">Envía y recibe lo que quieras</ion-label>
+        </div>
+        <div>
+          <span class="highlight">
+            <ion-icon name="heart-outline" class="icon-class"></ion-icon>
+            <ion-label class="icon-class">Envio $3.50 . 1km </ion-label>
+            <ion-icon class="rating-icon icon-class" name="star"></ion-icon>
+            <ion-label class="icon-class">4.8</ion-label>
+          </span>
+        </div>  
+      </ion-col>
+      <ion-col size="small">
+        <div>
+          <ion-img src="../../assets/img/messaging-logo.png" class="togo-icon"></ion-img>
+        </div>
+        <div>
+          <ion-label class="open">Abierto</ion-label>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+          
+        <div>
+          <span>
+            <ion-icon name="information-circle-outline" class="caps-text"></ion-icon>
+            <ion-label class="caps-text">INFO</ion-label>
+          </span>
+          <span>
+            <ion-icon class="caps-text" name="chatbox-outline"></ion-icon>
+            <ion-label class="caps-text">VER OPINIONES</ion-label>
+          </span>
+        </div>
+        <br>  
+        <div>
+          <ion-label class="item-text">¿QUÉ QUIERES ENVIAR?</ion-label>
+          <ion-item  lines="none">
+            <ion-textarea placeholder="Describe tu pedido..." [(ngModel)]="package" type="text"><img class="icon-text" src="../../assets/img/text-input-icon.png"/></ion-textarea>
+          </ion-item>
+          <ion-label class="item-text">¿DÓNDE LO RECOGEMOS?</ion-label>
+          <ion-item  lines="none">
+            <ion-input (ionInput)="updateSearch()" [(ngModel)]="autocomplete.query"><ion-icon class="icon-text" name="location-sharp"></ion-icon></ion-input>
+          </ion-item>
+          <ion-list >
+            <ion-item (click)="chooseItem(item)" *ngFor="let item of autocompleteItems" class="input-text ion-tappable">
+              <ion-icon slot="start" name="pin"></ion-icon>
+              {{ item.description }}
+            </ion-item>
+          </ion-list>
+          <ion-label class="item-text">INSTRUCCIONES PARA RECOGER</ion-label>
+          <ion-item  lines="none">
+            <ion-textarea placeholder="Especifica dirección y persona de contacto..." [(ngModel)]="pickup" type="text"><img class="icon-text" src="../../assets/img/text-input-icon.png"/></ion-textarea>
+          </ion-item>
+          <ion-label class="item-text">¿DÓNDE LO ENTREGAMOS?</ion-label>
+          <ion-item  lines="none">
+            <ion-input (ionInput)="updateSearch2()" [(ngModel)]="autocomplete2.query"><ion-icon class="icon-text" name="location-sharp"></ion-icon></ion-input>
+          </ion-item>
+          <ion-list>
+            <ion-item (click)="chooseItem2(item)" *ngFor="let item of autocompleteItems2" class="input-text ion-tappable">
+              <ion-icon slot="start" name="pin"></ion-icon>
+              {{ item.description }}
+            </ion-item>
+          </ion-list>
+          <ion-label class="item-text">INSTRUCCIONES DE LA ENTREGA</ion-label>
+          <ion-item  lines="none">
+            <ion-textarea placeholder="Especifica dirección y persona de contacto..." [(ngModel)]="instructions" type="text"><img class="icon-text" src="../../assets/img/text-input-icon.png"/></ion-textarea>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-row>
+    <div>
+      <ion-row>
+        <ion-col size="3">
+          <img src="../../assets/img/messaging-warning.png" class="alert-icon"/>
+        </ion-col>
+        <ion-col size="9">
+          <ul>
+            <ion-label class="remember">Recuerda que:</ion-label>
+            <li>
+              <ion-label class="list-item">Debe caber en nuestra mochila de entregas.</ion-label>
+            </li>
+            <li>
+              <ion-label class="list-item">Peso máximo permitido 10 lbs.</ion-label>
+            </li>
+            <li>
+              <ion-label class="list-item">No podemos transportar envíos de productos de valor como joyas,
+                  dinero y/o productos que atenten contra la seguridad de nuestros mensajeros.</ion-label>
+            </li>
+            <li class="no-bullets">
+              <ion-label class="terminos">Ver Terminos y Condiciones <ion-icon name="chevron-forward-outline"></ion-icon></ion-label>
+            </li>
+          </ul>
+        </ion-col>
+      </ion-row>
+    </div>
+ 
+      <div>
+        <ion-button shape="round" expand="block" class="margin-auto w-75 button-config" (click)="createOrder()">Solicitar Mensajero</ion-button>   
+      </div>
+      
+  </ion-grid>
+</ion-content>

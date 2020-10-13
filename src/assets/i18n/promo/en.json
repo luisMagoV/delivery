@@ -1,0 +1,15 @@
+{
+  "promo": {
+    "title": "Promotions",
+    "promo": {
+      "terms": "* Terms and Conditions"
+    },
+    "coupons": {
+      "title": "Do you have a coupon?",
+      "label": "Do not forget to check the details <br />  to be able to redeem it. <br /> ",
+      "button": "Validate it here"
+    },
+    "offers": "The best offers for you",
+    "sessions": "Sessions"
+  }
+}

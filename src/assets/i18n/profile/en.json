@@ -1,0 +1,97 @@
+{
+  "profile": {
+    "title": {
+      "greeting": "Hi",
+      "points": "Available points:"
+    },
+    "subtitle": {
+      "profile": "Profile<br/>Data",
+      "help": "Help<br/>Center",
+      "orders": "Order<br/>History",
+      "pay": "Payment<br/>Methods"
+    },
+    "promosList": {
+      "title": "Promos and Credits",
+      "credits": "My Credits",
+      "points": "My Points",
+      "invite": "Invite a friend and win $"
+    },
+    "accountList": {
+      "title": "My Account",
+      "data": "My Data",
+      "favorites": "My Favorites",
+      "orders": "My Orders",
+      "coupons": "My Coupons"
+    },
+    "settingsList": {
+      "title": "Settings",
+      "language": "Language",
+      "address": "Address",
+      "payMethods": "Pay Methods"
+    },
+    "informationList": {
+      "title": "Information",
+      "terms": "Terms y Conditions",
+      "privacy": "Privacy of my Data",
+      "register": "Register my Business",
+      "join": "Join our Team",
+      "session": "Sign off"
+    }
+  },
+  "help": {
+    "back": "Back",
+    "title": {
+      "title": "Help Center",
+      "subtitle": "Do you have any doubt?"
+    },
+    "body":{
+      "orders": "See all my orders",
+      "profile": "My account",
+      "promos": "Promotions",
+      "pay": "Payments",
+      "faq": "Frequently asked questions",
+      "contact": "Contact Us"
+    }
+  },
+  "favorites": {
+    "back": "Back",
+    "title": "My favorites",
+    "store": "Stores",
+    "products": "Products"
+  },
+  "faq": {
+    "title": "Frequently asked questions"
+  },
+  "edit": {
+    "back": "Back",
+    "title": {
+      "title": "My Profile",
+      "subtitle": "Update your personal data",
+      "photo": "Change photo"
+    },
+    "form": {
+      "name": "Names",
+      "lastName": "Lastnames",
+      "cellphone": "Cellphone",
+      "dateOfBirth": "Date of birth",
+      "sex": {
+        "title": "Sex",
+        "woman": "Woman",
+        "men": "Man"
+      },
+      "card": {
+        "title": "Credit / Debit Card",
+        "add": "Add another credit card"
+      },
+      "buttons": {
+        "cancel": "Cancel",
+        "save": "Save"
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact us",
+    "messagePlaceholder": "Write a message",
+    "send": "Send Message"
+  }
+}

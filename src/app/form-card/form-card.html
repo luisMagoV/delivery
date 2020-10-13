@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-icon size="large" (click)="back()" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title>Agregar tarjeta</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="saveCard()">
+        Guardar
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input [(ngModel)]="cardholder" type="text" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Apellido</ion-label>
+      <ion-input [(ngModel)]="cardholderLastname" type="text" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Número de tarjeta</ion-label>
+      <ion-input (change)='updateText($event.target.value)' [(ngModel)]="cardnumber" mask="0000 0000 0000 0000" id="cardnumber" type="text" pattern="\d+" minlength="16" maxlength="26" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Mes</ion-label>
+      <ion-select [(ngModel)]="month" required>
+        <ion-select-option value="01">01</ion-select-option>
+        <ion-select-option value="02">02</ion-select-option>
+        <ion-select-option value="03">03</ion-select-option>
+        <ion-select-option value="04">04</ion-select-option>
+        <ion-select-option value="05">05</ion-select-option>
+        <ion-select-option value="06">06</ion-select-option>
+        <ion-select-option value="07">07</ion-select-option>
+        <ion-select-option value="08">08</ion-select-option>
+        <ion-select-option value="09">09</ion-select-option>
+        <ion-select-option value="10">10</ion-select-option>
+        <ion-select-option value="11">11</ion-select-option>
+        <ion-select-option value="12">12</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Año</ion-label>
+      <ion-select [(ngModel)]="year" required>
+        <ion-select-option *ngFor="let year of years" value="{{year}}">{{year}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">CVV</ion-label>
+      <ion-input [(ngModel)]="cvv" type="text" maxlength="5" minlength="3" required></ion-input>
+    </ion-item>
+  </ion-list>
+</ion-content>

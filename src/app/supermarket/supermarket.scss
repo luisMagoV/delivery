@@ -1,0 +1,63 @@
+.item-input .label-md {
+  color: #bbbbbb;
+}
+
+.text-input, .text-input-md {
+  color: #515151;
+}
+
+.list-md .item-input.item-input-has-focus:last-child,
+.list-md .item-input.input-has-focus:last-child,
+.item-md.item-input.item-input-has-focus .item-inner,
+.item-md.item-input.input-has-focus .item-inner {
+  border-bottom-color: #515151;
+}
+
+.item-input-has-focus .label-md[floating], .item-has-focus .label-md[floating] {
+  color: #bbbbbb;
+}
+
+.add_product {
+  margin-top: 20px;
+}
+
+.separator {
+  color: #515151;
+}
+
+.half {
+  width: 30%;
+  float: left;
+  color: #515151;
+}
+
+.half-2 {
+  width: 60%;
+  float: right;
+  color: #515151;
+}
+
+.quanty_p {
+  width: 15%;
+  float: right;
+  border: 1px solid #dedede;
+  color: #515151;
+  height: 40px;
+  margin-top: 8px;
+  border-radius: 10px;
+}
+
+.button-md:hover:not(.disable-hover) {
+  background-color: #ff8f00;
+}
+
+.icons_product {
+  position: absolute;
+  right: 0;
+}
+
+.icon-only {
+  background-color: transparent;
+  font-size: 20px;
+  color: #0871a5;
+}

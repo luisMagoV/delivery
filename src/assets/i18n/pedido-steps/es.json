@@ -1,0 +1,114 @@
+{
+  "category": {
+    "header": {
+      "greeting": "Hola",
+      "profile": "Ver perfil",
+      "coupons": "Cupones"
+    },
+    "searchbar": "¿Qué quieres pedir?",
+    "list": {
+      "store": "Tienda",
+      "product": "Producto"
+    },
+    "order": {
+      "status": "ESTADO DE PEDIDOS",
+      "received": "Orden Recibida",
+      "preparing": "Preparando",
+      "delivery": "En camino",
+      "delivered": "Entregado"
+    },
+    "favorites": "Mis favoritos",
+    "suggested": "Sugeridos",
+    "new": "Lo nuevo en Togo",
+    "promotions": "Últimas Promociones"
+  },
+  "checkout": {
+    "title": "Tu Canasta",
+    "backStore": "Volver a la tienda",
+    "noProducts": "No Hay Productos disponibles",
+    "continue": "Continuar",
+    "empty": "Vaciar canasta"
+  },
+  "products": {
+    "modal": {
+      "information": "Información",
+      "schedule": "Horarios"
+    },
+    "header": {
+      "shipping": "Envío",
+      "opinions": "Ver Opiniones",
+      "info": "Info"
+    },
+    "searchbar": "Buscar productos o categorias",
+    "category": "Todas",
+    "offers": "Súper Ofertas",
+    "select": "Seleccionar",
+    "continue": "Continuar"
+  },
+  "promo-store": {
+    "back": "Atras",
+    "searchbar": "¿Qué quieres pedir?",
+    "promos": "Promociones",
+    "categorie": "Categoría",
+    "open": "Abierto",
+    "close": "Cerrado",
+    "shipping": "Envío"
+  },
+  "preorden": {
+    "header": "Detalles de la orden",
+    "service": "Tipo de servicio",
+    "shopAt": "Comprar en:",
+    "details": "Detalles del pedido",
+    "product": "Producto:",
+    "quantity": "Cantidad:",
+    "order": "Resumen de la orden",
+    "searchAt": "Buscar en:",
+    "deliveryAt": "Entrega en:",
+    "products": "Productos",
+    "delivery": "Entrega",
+    "observations": "Observaciones",
+    "distance": "Distancia",
+    "promo": "Promo activa:",
+    "promos": "Promociones",
+    "select": "Solo puede seleccionar una opcion por pedido.",
+    "coupon": "Cupón",
+    "credit": "Crédito",
+    "redeem": "Canjear",
+    "continue": "Continuar"
+  },
+  "pay-method": {
+    "back": "Atrás",
+    "title": {
+      "title": "Método de Pago",
+      "subtitle": "Selecciona el metodo con el que desea pagar."
+    },
+    "online": {
+      "title": "Pagar Online",
+      "delete": "Borrar",
+      "add": "Agregar nueva tarjeta"
+    },
+    "delivery": {
+      "title": "A la entrega",
+      "cash": "Efectivo",
+      "pos": "Tarjeta Clave (POS)",
+      "mastercard": "Mastercard",
+      "visa": "Visa"
+    },
+    "continue": "Hacer el Pedido"
+  },
+  "product-detail": {
+    "description": "Descripción:",
+    "brand": "Marca:",
+    "category": "Categoria:",
+    "price": "Precio:",
+    "back": "volver",
+    "add": "Agregar"
+  },
+  "product-opinion": {
+    "title": "Opiniones",
+    "favorite": "Marcar como favorito",
+    "placeholder": "Escribe aqui tu opinión y/o experiencia que has tenido con este negocio. Tus comentarios serán revisados antes de ser publicados.",
+    "publish": "Publicar",
+    "number": "personas opinan sobre este negocio"
+  }
+}

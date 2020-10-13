@@ -1,0 +1,14 @@
+<ion-header class="ion-no-border">
+    <ion-toolbar>
+        <ion-buttons class="black" slot="end">
+            <ion-icon size="large" (click)="back()" name="close-outline"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+
+    <img [src]="'assets/img/TYC_puntos.png'"/>
+
+    <ion-button (click)="back()" expand="block" shape="round" class="w-75 margin-auto aceptar">{{ 'legal.agree' | translate }}</ion-button>
+
+</ion-content>

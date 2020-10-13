@@ -1,0 +1,82 @@
+<ion-header *ngIf="!orderComplete">
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-icon (click)="back()" name="arrow-back-outline" size="large"></ion-icon>
+            {{ 'pay-method.back' | translate }} 
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+
+    <div *ngIf="orderComplete">
+        <ion-img alt="" src="assets/img/pedido_enviado.gif" class="margin-auto w-50 middle-content"></ion-img>
+    </div>
+
+    <div *ngIf="!orderComplete">
+        <div class="ion-padding-vertical header-titles">
+            <ion-title color="primary" class="font-weight-bold">{{ 'pay-method.title.title' | translate }}</ion-title>
+            <ion-label>{{ 'pay-method.title.subtitle' | translate }}</ion-label>
+        </div>
+
+        <ion-list class="ion-no-padding">
+            <ion-radio-group [(ngModel)]="radioSelected">
+
+                <ion-title color="primary" class="font-weight-bold">{{ 'pay-method.online.title' | translate }}</ion-title>
+
+                <ion-col class="ion-no-padding">
+                    <ion-item class="card first-rounded" lines="none">
+                        <ion-radio size="1" value="card"></ion-radio>
+                        <ion-row size="8" class="ion-padding-start">
+                            <ion-avatar>
+                                <img alt="" src="../../assets/img/visa.png"/>
+                            </ion-avatar>
+                            <ion-label>**** {{cardSelected?.lastFour}}</ion-label>
+                        </ion-row>
+                        <ion-label color="primary" size="1" class="font-weight-bold ion-text-right small">{{ 'pay-method.online.delete' | translate }}</ion-label>
+                    </ion-item>
+                    <ion-item class="card last-rounded" lines="none" (click)="changeCard()">
+                        <ion-label color="primary" class="font-weight-bold ion-text-left x-small ion-padding-start">
+                            + {{ 'pay-method.online.add' | translate }}
+                        </ion-label>
+                    </ion-item>
+                </ion-col>
+
+                <ion-title color="primary" class="font-weight-bold">{{ 'pay-method.delivery.title' | translate }}</ion-title>
+
+                <ion-item class="card first-rounded" lines="none">
+                    <ion-radio size="1" value="cash" aria-checked="true" checked></ion-radio>
+                    <ion-row size="8" class="ion-padding-start">
+                        <ion-label>{{ 'pay-method.delivery.cash' | translate }}</ion-label>
+                    </ion-row>
+                </ion-item>
+
+                <ion-item class="card content-rounded" lines="none">
+                    <ion-radio size="1" value="pos"></ion-radio>
+                    <ion-row size="8" class="ion-padding-start">
+                        <ion-label>{{ 'pay-method.delivery.pos' | translate }}</ion-label>
+                    </ion-row>
+                </ion-item>
+
+                <ion-item class="card content-rounded" lines="none">
+                    <ion-radio size="1" value="master"></ion-radio>
+                    <ion-row size="8" class="ion-padding-start">
+                        <ion-label>{{ 'pay-method.delivery.mastercard' | translate }}</ion-label>
+                    </ion-row>
+                </ion-item>
+
+                <ion-item class="card last-rounded" lines="none">
+                    <ion-radio size="1" value="visa"></ion-radio>
+                    <ion-row size="8" class="ion-padding-start">
+                        <ion-label>{{ 'pay-method.delivery.visa' | translate }}</ion-label>
+                    </ion-row>
+                </ion-item>
+            </ion-radio-group>
+        </ion-list>
+    </div>
+
+</ion-content>
+<ion-footer *ngIf="!orderComplete" class="ion-no-border ion-padding-bottom">
+    <ion-button (click)="approvedOrder()" expand="block" shape="round" class="w-75 margin-auto pedido">
+        {{ 'pay-method.continue' | translate }}
+    </ion-button>
+</ion-footer>

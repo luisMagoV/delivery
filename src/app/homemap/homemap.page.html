@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons *ngIf="placeSelected" slot="start">
+      <ion-button (click)="clearScreen()" class="back_button_home">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title class="h_logo">
+      Solicitud de Servicios
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item class="item_home" (click)="showAddressModal()">
+    <ion-label class="search_icon_home">
+      <ion-icon name="search"></ion-icon>
+    </ion-label>
+    <ion-input [(ngModel)]="address" class="search_home" readonly="readonly" placeholder="¿Dónde te encontramos?" type="text"></ion-input>
+  </ion-item>
+  <div *ngIf="placeSelected == false && directions" class="services">
+    <div *ngFor="let address of directions; let i = index">
+      <ion-fab (click)="selectAddress(i)" *ngIf="i == 0" class="address" vertical="bottom" horizontal="start">
+        <ion-fab-button>
+          <ion-icon name="{{getIcon(i)}}"></ion-icon>
+        </ion-fab-button>
+        {{address.name}}
+      </ion-fab>
+      <ion-fab (click)="selectAddress(i)" *ngIf="i == 1" class="address" vertical="bottom" horizontal="end">
+        <ion-fab-button>
+          <ion-icon name="{{getIcon(i)}}"></ion-icon>
+        </ion-fab-button>
+        {{address.name}}
+      </ion-fab>
+      <ion-fab (click)="selectAddress(i)" *ngIf="i == 2" class="address" vertical="bottom" horizontal="center">
+        <ion-fab-button>
+          <ion-icon name="{{getIcon(i)}}"></ion-icon>
+        </ion-fab-button>
+        {{address.name}}
+      </ion-fab>
+    </div>
+  </div>
+  <div id="map-container"></div>
+  <div *ngIf="placeSelected" class="services-btn">
+    <ion-button expand="block" (click)="showServices()" class="btn_k rounded-pill w-100">
+      <ion-label class="icon_text">Servicios Disponibles</ion-label>
+    </ion-button>
+  </div>
+</ion-content>

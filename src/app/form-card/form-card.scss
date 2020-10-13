@@ -1,0 +1,29 @@
+.item-input .label-md {
+  color: #bbbbbb;
+}
+
+.text-input, .text-input-md {
+  color: #515151;
+}
+
+.list-md .item-input.item-input-has-focus:last-child,
+.list-md .item-input.input-has-focus:last-child,
+.item-md.item-input.item-input-has-focus .item-inner,
+.item-md.item-input.input-has-focus .item-inner {
+  border-bottom-color: #515151;
+}
+
+.item-input-has-focus .label-md[floating], .item-has-focus .label-md[floating] {
+  color: #bbbbbb;
+}
+
+ion-select {
+  color: #515151;
+  font-family: MarkPro;
+}
+
+.item-input .label-md, .item-select .label-md, .item-datetime .label-md {
+  font-family: MarkPro-Bold;
+  color: #bbb;
+}
+

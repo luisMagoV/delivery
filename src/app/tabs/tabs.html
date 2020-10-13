@@ -1,0 +1,78 @@
+<ion-content class="color-client content-align" *ngIf="appConfig.user === null">
+    <ion-item color="primary" lines="none" class="ion-padding-top ion-padding-bottom">
+        <img alt="logo" class="w-75 margin-auto" src="../../assets/img/logo.png"/>
+    </ion-item>
+    <ion-col class="ion-no-padding bottom-content">
+        <ion-item lines="none" color="primary">
+            <ion-label class="x-large text-center font-weight-bold">{{ 'tabs.register.togo' | translate }}</ion-label>
+        </ion-item>
+        <ion-item class="login_number" lines="none" color="primary">
+            <ion-button shape="round" expand="block" fill="outline" size="large" class="w-100" (click)="showFormRegister()">
+                <ion-icon class="medium" name="calculator-outline"></ion-icon>
+                <ion-label class="medium text-capitalize font-weight-bold"> {{ 'tabs.register.cellphone' | translate }} </ion-label>
+            </ion-button>
+        </ion-item>
+        <ion-item class="login_other" lines="none" color="primary">
+            <ion-button shape="round" expand="block" size="large" class="w-100" (click)="showButtonsRegister()">
+                <ion-label color="primary" class="medium text-capitalize font-weight-bold"> {{ 'tabs.register.other' | translate }} </ion-label>
+            </ion-button>
+        </ion-item>
+    </ion-col>
+</ion-content>
+<ion-footer *ngIf="appConfig.user === null">
+    <ion-item-divider></ion-item-divider>
+    <ion-item lines="none" class="ion-padding-bottom" (click)="showFormRegister()">
+        <ion-label color="medium" class="w-100 text-center">{{ 'tabs.account' | translate }}</ion-label>
+    </ion-item>
+</ion-footer>
+<ion-tabs *ngIf="appConfig.user !== null">
+
+    <ion-tab-bar slot="bottom">
+
+        <ion-tab-button (click)="navigate('pedido-steps')" tab="pedido-steps">
+            <!--<ion-icon name="cart-outline"></ion-icon>-->
+            <ion-img class="img-size" [src]="'assets/img/tiendas.png'"></ion-img>
+            <ion-label>{{ 'tabs.tab.store' | translate }}</ion-label>
+        </ion-tab-button>
+
+        <!--
+        <ion-tab-button (click)="navigate('homemap')" tab="homemap">
+            <ion-icon name="locate-outline"></ion-icon>
+            <ion-label>Pedidos</ion-label>
+        </ion-tab-button>
+        -->
+
+        <ion-tab-button (click)="navigate('promo')" tab="promo">
+            <!--<ion-icon name="star-outline"></ion-icon>-->
+            <ion-img class="img-size" [src]="'assets/img/promociones.png'"></ion-img>
+            <ion-label>{{ 'tabs.tab.promo' | translate }}</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button (click)="navigate('pedido')" tab="pedido">
+            <!--<ion-icon name="reader-outline"></ion-icon>-->
+            <ion-img class="img-size" [src]="'assets/img/pedidos.png'"></ion-img>
+            <ion-label>{{ 'tabs.tab.order' | translate }}</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button (click)="navigate('profile/help')" tab="profile/help">
+            <!--<ion-icon name="person-outline"></ion-icon>-->
+            <ion-img class="img-size" [src]="'assets/img/ayuda.png'"></ion-img>
+            <ion-label>{{ 'tabs.tab.help' | translate }}</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button (click)="navigate('profile')" tab="profile">
+            <!--<ion-icon name="person-outline"></ion-icon>-->
+            <ion-img class="img-size" [src]="'assets/img/perfil.png'"></ion-img>
+            <ion-label>{{ 'tabs.tab.profile' | translate }}</ion-label>
+        </ion-tab-button>
+
+        <!--
+        <ion-tab-button tab="settings" (click)="navigate('settings')">
+          <ion-icon name="construct-outline"></ion-icon>
+          <ion-label>Servicios</ion-label>
+        </ion-tab-button>
+        -->
+
+    </ion-tab-bar>
+
+</ion-tabs>
